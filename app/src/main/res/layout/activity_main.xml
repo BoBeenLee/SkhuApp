@@ -32,21 +32,35 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btn_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:text="Home" />
 
         <Button
+            android:id="@+id/btn_department"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:text="학과" />
 
         <Button
+            android:id="@+id/btn_etc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:text="기타" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="asldnfsdklfnsdlfnsda"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="asldnfsdklfnsdlfnsda"
+            />
     </LinearLayout>
 </LinearLayout>
