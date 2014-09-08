@@ -3,29 +3,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     android:orientation="horizontal">
     <TextView
         android:id="@+id/home_no"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
         android:text="No"
         />
     <TextView
         android:id="@+id/home_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
         android:text="Title"
         />
     <TextView
         android:id="@+id/home_writer"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
         android:text="Writer"
         />
     <TextView
         android:id="@+id/home_created"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="match_parent"
-        android:text="CreatedDate"
+        android:text="date"
         />
 </LinearLayout>

@@ -1,1 +1,4 @@
+include ':async-http'
+include ':viewPagerIndicator'
+include ':pullToRefresh'
 include ':app'

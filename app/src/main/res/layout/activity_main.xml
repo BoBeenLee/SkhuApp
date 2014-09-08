@@ -1,66 +1,46 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eee"
-    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <FrameLayout
+    <ImageView
+        android:id="@+id/main_bg"
         android:layout_width="match_parent"
-        android:layout_height="335dp">
-        <ImageView
-            android:id="@+id/main_bg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:src="@drawable/main_bg" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="30dp"
-            android:layout_gravity="center"
-            android:text="SKHU"
-            android:textSize="50sp" />
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@drawable/main_bg" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:textColor="#fff"
+            android:textSize="80dp"
+            android:gravity="center"
+            android:text="성공회 알람 앱"
+            />
         <Button
             android:id="@+id/btn_home"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="25dp"
             android:layout_marginBottom="15dp"
-            android:text="Home" />
-
+            android:text="성공회" />
         <Button
-            android:id="@+id/btn_department"
+            android:id="@+id/btn_facebook"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="25dp"
             android:layout_marginBottom="15dp"
-            android:text="학과" />
-
-        <Button
-            android:id="@+id/btn_etc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:text="기타" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="asldnfsdklfnsdlfnsda"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="asldnfsdklfnsdlfnsda"
-            />
+            android:text="페이스북" />
     </LinearLayout>
-</LinearLayout>
+</FrameLayout>

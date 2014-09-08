@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="base_uri">http://192.168.219.160:8080/skhu_server/skhu.app</string>
+    <string name="product_id">191825913558</string>
+</resources>

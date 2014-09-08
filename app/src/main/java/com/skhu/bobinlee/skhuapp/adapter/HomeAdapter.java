@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.skhu.bobinlee.skhuapp.R;
-import com.skhu.bobinlee.skhuapp.model.data.Skhu;
+import com.skhu.bobinlee.skhuapp.model.Home;
+import com.skhu.bobinlee.skhuapp.model.code.SK0001;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,31 +19,23 @@ import java.util.List;
 public class HomeAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
-    private ArrayList<Skhu> skhuArticles;
+    private List<Home> mHomes;
 
-    public HomeAdapter(Context context) {
+    public HomeAdapter(Context context, List<Home> homes) {
         super();
         mContext = context;
+        mHomes = homes;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        skhuArticles = new ArrayList<Skhu>();
-    }
-
-    public void add(Skhu skhu){
-        skhuArticles.add(skhu);
-    }
-
-    public void addAll(List<Skhu> skhus){
-        skhuArticles.addAll(skhus);
     }
 
     @Override
     public int getCount() {
-        return skhuArticles.size();
+        return mHomes.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return skhuArticles.get(position);
+        return null;
     }
 
     @Override
@@ -53,12 +45,33 @@ public class HomeAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null || (Integer) convertView.getTag() != position){
+        Holder holder = null;
+
+        if(convertView != null)
+            holder = (Holder) convertView.getTag();
+
+        if(convertView == null || holder.postition != position){
             convertView = mInflater.inflate(R.layout.list_home_item, null);
-            TextView textView = (TextView) convertView.findViewById(R.id.home_no);
-            textView.setText(position + "");
-            convertView.setTag(position);
+            holder = new Holder();
+
+            holder.postition = position;
+            holder.no = (TextView) convertView.findViewById(R.id.home_no);
+            holder.title = (TextView) convertView.findViewById(R.id.home_title);
+            holder.writer = (TextView) convertView.findViewById(R.id.home_writer);
+            holder.created = (TextView) convertView.findViewById(R.id.home_created);
+
+            holder.no.setText("" + mHomes.get(position).no);
+            holder.title.setText(mHomes.get(position).title);
+            holder.writer.setText(mHomes.get(position).writer);
+            holder.created.setText(mHomes.get(position).created);
+
+            convertView.setTag(holder);
         }
         return convertView;
+    }
+
+    private class Holder {
+        public int postition;
+        public TextView no, title, writer, created;
     }
 }

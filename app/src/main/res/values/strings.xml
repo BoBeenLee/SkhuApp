@@ -7,5 +7,6 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_department">DepartmentActivity</string>
     <string name="title_activity_etc">EtcActivity</string>
+    <string name="title_activity_facebook">FacebookActivity</string>
 
 </resources>

@@ -1,62 +1,104 @@
 package com.skhu.bobinlee.skhuapp.activity;
 
-import android.app.ActionBar;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.Window;
+import android.widget.ListView;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import com.skhu.bobinlee.skhuapp.R;
-import com.skhu.bobinlee.skhuapp.adapter.TabFragmentPagerAdapter;
-import com.skhu.bobinlee.skhuapp.fragment.HomeFragment;
-import com.skhu.bobinlee.skhuapp.model.TabMenu;
-import com.viewpagerindicator.TabPageIndicator;
+import com.skhu.bobinlee.skhuapp.adapter.HomeAdapter;
+import com.skhu.bobinlee.skhuapp.model.APICode;
+import com.skhu.bobinlee.skhuapp.model.Home;
+import com.skhu.bobinlee.skhuapp.model.code.SK0001;
+import com.skhu.bobinlee.skhuapp.model.code.SK0001.*;
+import com.skhu.bobinlee.skhuapp.thread.PostMessageTask;
+import com.skhu.bobinlee.skhuapp.util.JacksonUtils;
+
+import org.apache.http.Header;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AbstractAsyncActivity {
-    private static final String[] HOME_TITLE = new String[] { "학사공지", "수업공지", "장학공지", "일반공지", "행사공지" };
-    private static final int[] HOME_ID = new int[] { 10004, 10005, 10006, 10007, 10008 };
-    /*
-        down vote
-        accepted
-        You need to use Html.fromHtml() to use HTML in your XML Strings. Simply referencing a String with HTML in your layout XML will not work.
-        For example:
-        myTextView.setText(Html.fromHtml("<h2>Title</h2><br><p>Description here</p>"));
-     */
-    TabFragmentPagerAdapter tabFragmentPagerAdapter;
-    ViewPager viewPager;
+
+    private HomeAdapter mHomeAdapter;
+    private PullToRefreshListView mHomeView;
+    private List<Home> mHomes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
         initResource();
-    }
-
-    public List<TabMenu> getMenus(){
-        ArrayList<TabMenu> menus = new ArrayList<TabMenu>();
-
-        for(int i=0; i<HOME_TITLE.length; i++){
-            TabMenu menu = new TabMenu();
-            menu.title = HOME_TITLE[i];
-            menu.id = HOME_ID[i];
-            menus.add(menu);
-        }
-        return menus;
+        initEvent();
     }
 
     public void initResource(){
-        tabFragmentPagerAdapter = new TabFragmentPagerAdapter(getSupportFragmentManager(), getMenus(), new HomeFragment());
-        viewPager = (ViewPager) findViewById(R.id.home_pager);
-        viewPager.setAdapter(tabFragmentPagerAdapter);
+        mHomes = new ArrayList<Home>();
+/*
+        for(int i=0; i<10; i++){
+            Home home = new Home();
+            home.no = i + 1;
+            home.cateNo = 1;
+            home.created = "2010-1-1";
+            home.title = "title title title";
+            home.writer = "bobinlee";
+            mHomes.add(home);
+        }
+*/
+        mHomeView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
+        final ListView actualListView = mHomeView.getRefreshableView();
+        mHomeAdapter = new HomeAdapter(this, mHomes);
 
-        TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.home_indicator);
-        indicator.setViewPager(viewPager);
+        actualListView.setAdapter(mHomeAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        postHomes();
     }
 
     public void initEvent(){
 
+    }
+
+    public void postHomes(){
+        APICode reqCode = new APICode();
+        SK0001 sk = new SK0001();
+        reqCode.tranCd = "SK0001";
+        reqCode.tranData = sk;
+
+        PostMessageTask.postJson(this, reqCode, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                APICode<SK0001> resCode = JacksonUtils.<APICode<SK0001>>jsonToObject(response.toString(), new TypeReference<APICode<SK0001>>() {
+                });
+                SK0001 sk = resCode.tranData;
+                List<SK0001Article> articles = sk.res;
+
+                for (SK0001Article article : articles) {
+                    Home home = new Home();
+                    home.no = article.brdNo;
+                    home.title = article.brdSubject;
+                    home.writer = article.brdNm;
+                    home.created = article.brdCreated;
+                    home.cateNo = article.brdCate;
+                    home.cateNm = article.brdCateNm;
+                    if (article.brdContent != null)
+                        home.content = new String(article.brdContent);
+                    home.link = article.brdUrl;
+                    home.attaches = article.brdAttachUrls;
+                    home.imgs = article.brdImgUrls;
+                    mHomes.add(home);
+                }
+                mHomeAdapter.notifyDataSetChanged();
+            }
+        });
     }
 }
