@@ -9,6 +9,7 @@ import com.loopj.android.http.JsonStreamerEntity;
 import com.loopj.android.http.RequestHandle;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.ResponseHandlerInterface;
+import com.loopj.android.http.SyncHttpClient;
 import com.skhu.bobinlee.skhuapp.R;
 import com.skhu.bobinlee.skhuapp.model.APICode;
 import com.skhu.bobinlee.skhuapp.util.JacksonUtils;
@@ -30,7 +31,8 @@ import java.util.Iterator;
  * Created by BoBinLee on 2014-09-04.
  */
 public class PostMessageTask {
-    private static AsyncHttpClient client = new AsyncHttpClient();
+    private static AsyncHttpClient asyncClient = new AsyncHttpClient();
+    private static AsyncHttpClient syncClient = new SyncHttpClient();
 
     public static void postJson(Context context, APICode reqCode, AsyncHttpResponseHandler responseHandler) {
         String url = context.getString(R.string.base_uri);
@@ -41,7 +43,20 @@ public class PostMessageTask {
         } catch (Exception e){
             e.printStackTrace();
         }
-        client.post(context, url, jsonParams, "application/json",
+        asyncClient.post(context, url, jsonParams, "application/json",
+                responseHandler);
+    }
+
+    public static void postSyncJson(Context context, APICode reqCode, AsyncHttpResponseHandler responseHandler) {
+        String url = context.getString(R.string.base_uri);
+
+        StringEntity jsonParams = null;
+        try {
+            jsonParams = new StringEntity(JacksonUtils.objectToJson(reqCode));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        syncClient.post(context, url, jsonParams, "application/json",
                 responseHandler);
     }
 }

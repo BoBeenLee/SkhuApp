@@ -1,6 +1,10 @@
 package com.skhu.bobinlee.skhuapp.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +25,14 @@ public class HomeAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<Home> mHomes;
 
+    private int refreshCnt;
+
     public HomeAdapter(Context context, List<Home> homes) {
         super();
         mContext = context;
         mHomes = homes;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        refreshCnt = 0;
     }
 
     @Override
@@ -44,16 +51,17 @@ public class HomeAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         Holder holder = null;
 
         if(convertView != null)
             holder = (Holder) convertView.getTag();
 
-        if(convertView == null || holder.postition != position){
+        if(convertView == null || holder.postition != position || holder.refresh != refreshCnt){
             convertView = mInflater.inflate(R.layout.list_home_item, null);
             holder = new Holder();
 
+            holder.refresh = refreshCnt;
             holder.postition = position;
             holder.no = (TextView) convertView.findViewById(R.id.home_no);
             holder.title = (TextView) convertView.findViewById(R.id.home_title);
@@ -65,13 +73,46 @@ public class HomeAdapter extends BaseAdapter {
             holder.writer.setText(mHomes.get(position).writer);
             holder.created.setText(mHomes.get(position).created);
 
+            // event
+            convertView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    // 팝업창 띄우기
+                    AlertDialog.Builder confirmDialog = new AlertDialog.Builder(mContext);
+                    confirmDialog.setTitle("해당링크로 이동하시겠습니까?");
+                    confirmDialog.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mHomes.get(position).link));
+                            mContext.startActivity(intent);
+                        }
+                    });
+                    confirmDialog.setNegativeButton("아니오", null);
+                    confirmDialog.show();
+                }
+            });
             convertView.setTag(holder);
         }
         return convertView;
     }
 
     private class Holder {
+        public int refresh;
         public int postition;
         public TextView no, title, writer, created;
+    }
+
+    public void add(Home home){
+        mHomes.add(home);
+    }
+
+    public void clear(){
+        mHomes.clear();
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        refreshCnt += 1;
+        super.notifyDataSetChanged();
     }
 }

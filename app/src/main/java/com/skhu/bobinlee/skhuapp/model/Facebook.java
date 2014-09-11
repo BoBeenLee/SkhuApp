@@ -7,9 +7,9 @@ import java.util.List;
  */
 public class Facebook {
     public String no;
-    public String title, writer, created;
+    public String writer, created;
     public String link, content;
     public int cateNo;
-    public List<String> imgs;
+    public String img;
     public int likeCnt, shareCnt, replyCnt;
 }

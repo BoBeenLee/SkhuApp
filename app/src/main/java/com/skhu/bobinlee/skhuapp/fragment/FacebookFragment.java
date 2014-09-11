@@ -3,7 +3,6 @@ package com.skhu.bobinlee.skhuapp.fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +20,13 @@ import com.skhu.bobinlee.skhuapp.model.APICode;
 import com.skhu.bobinlee.skhuapp.model.Facebook;
 import com.skhu.bobinlee.skhuapp.model.code.SK0002;
 import com.skhu.bobinlee.skhuapp.thread.PostMessageTask;
+import com.skhu.bobinlee.skhuapp.util.DateUtils;
 import com.skhu.bobinlee.skhuapp.util.JacksonUtils;
 
 import org.apache.http.Header;
 import org.json.JSONObject;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,8 @@ public class FacebookFragment extends AbstractFragment {
     private List<Facebook> mFacebooks;
 
     private AsyncActivity mAsyncActivity;
+    private int cateNo;
+    private String lastNo;
 
     @Override
     public void onAttach(Activity activity) {
@@ -58,21 +61,12 @@ public class FacebookFragment extends AbstractFragment {
 
     public void initResource(){
         Bundle bundle = this.getArguments();
+        cateNo = bundle.getInt("cateNo");
 
         mFacebookView = (PullToRefreshListView) mView.findViewById(R.id.pull_refresh_list);
         final ListView actualListView = mFacebookView.getRefreshableView();
 
         mFacebooks = new ArrayList<Facebook>();
-
-//        for(int i=0; i<10; i++){
-//            Facebook facebook = new Facebook();
-//            facebook.no = "" + i + 1;
-//            facebook.cateNo = 1;
-//            facebook.created = "2010-1-1";
-//            facebook.title = "title title title";
-//            facebook.writer = "bobinlee";
-//            mFacebooks.add(facebook);
-//        }
         mFacebookAdapter = new FacebookAdapter(getActivity(), mFacebooks);
 
         actualListView.setAdapter(mFacebookAdapter);
@@ -83,9 +77,16 @@ public class FacebookFragment extends AbstractFragment {
         mFacebookView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
             public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-                String label = DateUtils.formatDateTime(FacebookFragment.this.getActivity().getApplicationContext(), System.currentTimeMillis(),
-                        DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
-                Log.d(FacebookFragment.class.getCanonicalName(), "= onRefreshing..." + label);
+//                String label = DateUtils.formatDateTime(FacebookFragment.this.getActivity().getApplicationContext(), System.currentTimeMillis(),
+//                        DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
+//                Log.d(FacebookFragment.class.getCanonicalName(), "= onRefreshing..." + label);
+//                mPullRefreshListView.onRefreshComplete();
+                Timestamp created = null;
+//                Log.d("onRefresh", "onRefresh");
+                if(lastNo != null)
+                    postFacebooks(cateNo, lastNo);
+                else
+                    postFacebooks(cateNo, initReqPoNo());
             }
         });
     }
@@ -98,21 +99,22 @@ public class FacebookFragment extends AbstractFragment {
     @Override
     public void onResume() {
         super.onResume();
-        postFacebooks(0);
+//        Log.d("onResume", "onResume");
+        postFacebooks(cateNo, initReqPoNo());
     }
 
-    public void postFacebooks(int type){
-        String curTime = null;
-        try {
-            curTime = String.valueOf(com.skhu.bobinlee.skhuapp.util.DateUtils.stringToDate(com.skhu.bobinlee.skhuapp.util.DateUtils.currentTime()).getTime());
-        } catch (ParseException e){ e.printStackTrace(); }
+    public String initReqPoNo(){
+        String reqPoNo = String.valueOf(DateUtils.stringToDate(DateUtils.currentTime()).getTime());
+        reqPoNo = reqPoNo.substring(0, reqPoNo.length() - 3);
+        return reqPoNo;
+    }
 
-        String reqPoNo = curTime.substring(0, curTime.length() - 3);
-
+    public void postFacebooks(int cateNo, String reqPoNo){
         SK0002 sk = new SK0002();
+
         sk.reqPoNo = reqPoNo;
-        sk.reqPoCnt = 10;
-        sk.type = type;
+        sk.reqPoCnt = 15;
+        sk.cateNo = cateNo;
 
         APICode reqCode = new APICode();
         reqCode.tranCd = "SK0002";
@@ -128,17 +130,18 @@ public class FacebookFragment extends AbstractFragment {
                 for (SK0002.SK0002Article article : articles) {
                     Facebook facebook = new Facebook();
                     facebook.no = article.brdNo;
-                    facebook.title = article.brdSubject;
                     facebook.writer = article.brdNm;
                     facebook.created = article.brdCreated;
                     facebook.cateNo = article.brdCate;
                     if (article.brdContent != null)
                         facebook.content = new String(article.brdContent);
                     facebook.link = article.brdUrl;
-                    facebook.imgs = article.brdImgUrls;
+                    facebook.img = article.brdImgUrl;
                     mFacebooks.add(facebook);
                 }
+                lastNo = sk.resLastNo;
                 mFacebookAdapter.notifyDataSetChanged();
+                mFacebookView.onRefreshComplete();
             }
         });
     }

@@ -11,14 +11,14 @@ import org.joda.time.format.DateTimeFormatter;
 
 public class DateUtils {
     //	yyyy-MM-dd'T'hh:mm:ssZ - facebook
-    public static String dateForm = "yyyy-MM-dd'T'hh:mm:ssZ";
+    public static final String dateForm = "yyyy-MM-dd'T'HH:mm:ssZ";
 
     public static String dateToString(Timestamp timestamp){
         DateTimeFormatter dateStringFormat = DateTimeFormat.forPattern(dateForm);
         return dateStringFormat.print(timestamp.getTime());
     }
 
-    public static Timestamp stringToDate(String string) throws ParseException {
+    public static Timestamp stringToDate(String string) {
         DateTimeFormatter dateStringFormat = DateTimeFormat.forPattern(dateForm);
         DateTime time = dateStringFormat.parseDateTime(string);
 

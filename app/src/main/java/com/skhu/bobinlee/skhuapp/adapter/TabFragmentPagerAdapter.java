@@ -32,7 +32,7 @@ public class TabFragmentPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         AbstractFragment abstractFragment = mAbstractFragment.newInstance();
         Bundle bundle = new Bundle();
-        bundle.putInt("type", mMenus.get(position).id);
+        bundle.putInt("cateNo", mMenus.get(position).id);
         abstractFragment.setArguments(bundle);
         return abstractFragment;
     }

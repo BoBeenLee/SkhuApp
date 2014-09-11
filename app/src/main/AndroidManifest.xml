@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.skhu.bobinlee.skhuapp">
+    package="com.skhu.bobinlee.skhuapp" >
 
     <!-- boot up -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -9,12 +9,12 @@
     <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
         android:name="com.skhu.bobinlee.skhuapp.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="com.skhu.bobinlee.skhuapp.permission.C2D_MESSAGE" />
 
     <!-- commmon -->
@@ -25,27 +25,28 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name">
+        android:label="@string/app_name" >
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.HomeActivity"
-            android:label="@string/title_activity_home"></activity>
+            android:label="@string/title_activity_home" />
         <activity
             android:name=".activity.FacebookActivity"
             android:label="@string/title_activity_facebook"
-            android:theme="@style/Theme.PageIndicatorDefaults"></activity>
+            android:theme="@style/Theme.PageIndicatorDefaults" />
 
-        <!-- receiver  -->
+        <!-- receiver -->
         <receiver
             android:name="com.google.android.gcm.GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -53,11 +54,10 @@
                 <category android:name="com.skhu.bobinlee.skhuapp" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".broadcast.BootUpReceiver"
             android:enabled="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
@@ -66,6 +66,12 @@
             </intent-filter>
         </receiver>
         <!-- <service android:name=".GcmIntentService" /> -->
-        <service android:name=".GCMIntentService"></service>
+        <service android:name=".GCMIntentService" />
+
+        <activity
+            android:name=".activity.AlarmActivity"
+            android:label="@string/title_activity_alarm" >
+        </activity>
     </application>
+
 </manifest>

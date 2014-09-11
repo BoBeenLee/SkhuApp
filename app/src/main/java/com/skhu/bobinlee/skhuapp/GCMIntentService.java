@@ -2,6 +2,7 @@ package com.skhu.bobinlee.skhuapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -9,8 +10,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.android.gcm.GCMBaseIntentService;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.skhu.bobinlee.skhuapp.model.APICode;
+import com.skhu.bobinlee.skhuapp.model.Category;
 import com.skhu.bobinlee.skhuapp.model.Home;
 import com.skhu.bobinlee.skhuapp.model.code.PS0001;
+import com.skhu.bobinlee.skhuapp.model.code.SK0004;
 import com.skhu.bobinlee.skhuapp.thread.PostMessageTask;
 import com.skhu.bobinlee.skhuapp.util.CommonUtils;
 import com.skhu.bobinlee.skhuapp.util.JacksonUtils;
@@ -19,34 +22,37 @@ import com.skhu.bobinlee.skhuapp.util.Notifier;
 import org.apache.http.Header;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GCMIntentService extends GCMBaseIntentService {
     private static final String TAG = "GCMIntentService";
 
     @Override
-    protected void onRegistered(Context context, String registrationId) {
+    protected void onRegistered(final Context context, final String registrationId) {
         Log.i(TAG, "Device registered : " + registrationId);
+
         postGCM(context, registrationId);
     }
 
     public void postGCM(final Context context, String registrationId){
         PS0001 ps = new PS0001();
-        ps.mac = CommonUtils.getMACAddress("eth0");
+        ps.mac = CommonUtils.getMACAddress(context.getString(R.string.network_eth));
         ps.pushTokenId = registrationId;
-        ps.pushYn = "n";
+        ps.pushYn = "N";
      
         APICode reqCode = new APICode();
         reqCode.tranCd = "PS0001";
         reqCode.tranData = ps;
 
-        PostMessageTask.postJson(this, reqCode, new JsonHttpResponseHandler() {
+        PostMessageTask.postSyncJson(this, reqCode, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 APICode<PS0001> resCode = JacksonUtils.<APICode<PS0001>>jsonToObject(response.toString(), new TypeReference<APICode<PS0001>>() {
                 });
+                // 알람 toast 미확인 TODO
                 if(resCode.tranData.resultYn.equals("Y")){
-                    Toast.makeText(context, "알람 등록 완료", Toast.LENGTH_SHORT).show();
+                   Toast.makeText(context, "알람 설정 완료", Toast.LENGTH_SHORT).show();
                 }
             }
         });
