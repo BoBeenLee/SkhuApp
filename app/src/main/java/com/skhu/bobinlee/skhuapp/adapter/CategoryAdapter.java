@@ -22,14 +22,15 @@ public class CategoryAdapter extends BaseAdapter {
     private Context mContext;
     private List<Category> mCategories;
     private LayoutInflater mInflater;
+    private int refreshCnt;
 
     public CategoryAdapter(Context context, List<Category> categories) {
         super();
         mContext = context;
         mCategories = categories;
+        refreshCnt = 0;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -38,13 +39,13 @@ public class CategoryAdapter extends BaseAdapter {
         if(convertView != null)
             holder = (Holder) convertView.getTag();
 
-        if(convertView == null || holder.position != position){
+        if(convertView == null || holder.position != position || holder.refresh != refreshCnt){
             convertView = mInflater.inflate(R.layout.list_category_item, null);
             holder = new Holder();
 
+            holder.refresh = refreshCnt;
             holder.position = position;
             holder.categoryName = (TextView) convertView.findViewById(R.id.category_name);
-
 
             holder.categoryName.setText(mCategories.get(position).name);
             convertView.setTag(holder);
@@ -53,8 +54,15 @@ public class CategoryAdapter extends BaseAdapter {
     }
 
     private class Holder {
+        public int refresh;
         public int position;
         public TextView categoryName;
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        refreshCnt += 1;
+        super.notifyDataSetChanged();
     }
 
     public void add(Category category){

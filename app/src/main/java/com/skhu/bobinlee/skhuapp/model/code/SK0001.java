@@ -5,14 +5,16 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SK0001 {
-    @JsonProperty("_cate_no")
-    public List<Integer> cateNo;
-    @JsonProperty("_order_type")
-    public int orderType;
-    @JsonProperty("_req_po_cnt")
-    public int reqPoCnt;
-    @JsonProperty("_req_po_no")
-    public int reqPoNo;
+	@JsonProperty("_cate_no")
+	public List<Integer> cateNo;
+	@JsonProperty("_order_type")
+	public int orderType;
+	@JsonProperty("_req_po_cnt")
+	public int reqPoCnt;
+	@JsonProperty("_req_po_no")
+	public int reqPoNo;
+	@JsonProperty("_db_type")
+	public int dbType;
 	
 	@JsonProperty("_res_cnt")
 	public int resCnt;
@@ -40,6 +42,8 @@ public class SK0001 {
 			public String brdCateNm;
 		@JsonProperty("_brd_cate")
 			public int brdCate;
+		@JsonProperty("_reply_state")
+			public int replyState;
 		@JsonProperty("_brd_created")
 			public String brdCreated;
 		@JsonProperty("_brd_comment_cnt")

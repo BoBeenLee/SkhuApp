@@ -57,18 +57,18 @@ public class HomeAdapter extends BaseAdapter {
         if(convertView != null)
             holder = (Holder) convertView.getTag();
 
-        if(convertView == null || holder.postition != position || holder.refresh != refreshCnt){
+        if(convertView == null || holder.position != position || holder.refresh != refreshCnt){
             convertView = mInflater.inflate(R.layout.list_home_item, null);
             holder = new Holder();
 
             holder.refresh = refreshCnt;
-            holder.postition = position;
+            holder.position = position;
             holder.no = (TextView) convertView.findViewById(R.id.home_no);
             holder.title = (TextView) convertView.findViewById(R.id.home_title);
             holder.writer = (TextView) convertView.findViewById(R.id.home_writer);
             holder.created = (TextView) convertView.findViewById(R.id.home_created);
 
-            holder.no.setText("" + mHomes.get(position).no);
+            holder.no.setText("" + (position + 1));
             holder.title.setText(mHomes.get(position).title);
             holder.writer.setText(mHomes.get(position).writer);
             holder.created.setText(mHomes.get(position).created);
@@ -98,7 +98,7 @@ public class HomeAdapter extends BaseAdapter {
 
     private class Holder {
         public int refresh;
-        public int postition;
+        public int position;
         public TextView no, title, writer, created;
     }
 

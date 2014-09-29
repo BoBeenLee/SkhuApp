@@ -9,4 +9,5 @@ public class Category {
     public String name;
     public String cateId;
     public int parentCateNo;
+    public int dbType;
 }

@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.android.gcm.GCMBaseIntentService;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.skhu.bobinlee.skhuapp.core.SessionManager;
 import com.skhu.bobinlee.skhuapp.model.APICode;
 import com.skhu.bobinlee.skhuapp.model.Category;
 import com.skhu.bobinlee.skhuapp.model.Home;
@@ -38,8 +39,11 @@ public class GCMIntentService extends GCMBaseIntentService {
     public void postGCM(final Context context, String registrationId){
         PS0001 ps = new PS0001();
         ps.mac = CommonUtils.getMACAddress(context.getString(R.string.network_eth));
+        if(ps.mac == null || ps.mac.trim().equals(""))
+            ps.mac = CommonUtils.getMACAddress(context.getString(R.string.network_eth1));
+
         ps.pushTokenId = registrationId;
-        ps.pushYn = "N";
+        ps.pushYn = "Y";
      
         APICode reqCode = new APICode();
         reqCode.tranCd = "PS0001";
@@ -50,9 +54,11 @@ public class GCMIntentService extends GCMBaseIntentService {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 APICode<PS0001> resCode = JacksonUtils.<APICode<PS0001>>jsonToObject(response.toString(), new TypeReference<APICode<PS0001>>() {
                 });
-                // 알람 toast 미확인 TODO
-                if(resCode.tranData.resultYn.equals("Y")){
-                   Toast.makeText(context, "알람 설정 완료", Toast.LENGTH_SHORT).show();
+                // 알람 toast 미확인
+                if (resCode.tranData.resultYn != null && resCode.tranData.resultYn.equals("Y")) {
+                    Log.d("postGCM", "알람 설정 완료");
+                } else {
+                    Log.d("postGCM", "알람 이미 설정 완료");
                 }
             }
         });
@@ -66,10 +72,17 @@ public class GCMIntentService extends GCMBaseIntentService {
 
     @Override
     protected void onMessage(Context context, Intent intent) {
-        Log.i(TAG, "Received new message : ");
+        // cateNM subject dbType
+        Log.i(TAG, "Received new message : " + intent.getStringExtra("cateNM") + " - " + intent.getStringExtra("subject"));
+
+        String cateNM = intent.getStringExtra("cateNM");
+        String subject = intent.getStringExtra("subject");
+        String url = intent.getStringExtra("url");
+        int dbType = Integer.parseInt(intent.getStringExtra("dbType"));
+
         try{
             Notifier notifer = new Notifier(context);
-            notifer.Notify("Global control system", intent.getStringExtra("message"));
+            notifer.Notify(intent.getStringExtra("cateNM"), intent.getStringExtra("subject"), url, dbType);
         }
         catch (Exception ex){
         }

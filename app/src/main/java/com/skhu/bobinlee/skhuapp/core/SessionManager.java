@@ -26,8 +26,7 @@ public class SessionManager {
 
 	// Sharedpref file name
 	private static final String PREF_NAME = "SessionPref";
-
-	// User token
+	// Cates
 	public static final String KEY_CATES = "cates";
 
 	public SessionManager(Context context) {
@@ -37,23 +36,33 @@ public class SessionManager {
 	}
 
 	public static SessionManager getInstance(Context context) {
-		if(mSessionManager == null)
-			mSessionManager = new SessionManager(context);
+		if(mSessionManager == null) {
+            mSessionManager = new SessionManager(context);
+            mSessionManager.createSession();
+        }
 		return mSessionManager;
 	}
 
-	public void createSession(List<Integer> cates) {
+	public void createSession() {
+        // Storing name in pref
+        mEditor.putString(KEY_CATES, null);
+		mEditor.commit();
+	}
+
+    public void setSessionDetails(HashMap<String, Object> sessions){
+        List<Integer> cates = (List<Integer>) sessions.get(KEY_CATES);
         String strCates = StringUtils.<Integer>join(cates.toArray(new Integer[cates.size()]), ",");
 
         // Storing name in pref
         mEditor.putString(KEY_CATES, strCates);
-		mEditor.commit();
-	}
+        mEditor.commit();
+    }
 
 	public HashMap<String, Object> getSessionDetails() {
 		HashMap<String, Object> sessions = new HashMap<String, Object>();
 
         String strCates = mPref.getString(KEY_CATES, null);
+
         List<Integer> cates = null;
         if(strCates != null) {
             String[] strings = strCates.split(",");

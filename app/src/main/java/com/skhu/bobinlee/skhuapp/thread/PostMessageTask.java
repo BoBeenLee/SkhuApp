@@ -43,6 +43,7 @@ public class PostMessageTask {
         } catch (Exception e){
             e.printStackTrace();
         }
+        Log.d("postJson", "" + JacksonUtils.objectToJson(reqCode));
         asyncClient.post(context, url, jsonParams, "application/json",
                 responseHandler);
     }
@@ -56,6 +57,7 @@ public class PostMessageTask {
         } catch (Exception e){
             e.printStackTrace();
         }
+        Log.d("postSyncJson", "" + JacksonUtils.objectToJson(reqCode));
         syncClient.post(context, url, jsonParams, "application/json",
                 responseHandler);
     }

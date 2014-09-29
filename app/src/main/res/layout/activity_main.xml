@@ -5,10 +5,48 @@
     tools:context=".MainActivity">
     <ImageView
         android:id="@+id/main_bg"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:src="@drawable/main_bg" />
+        android:src="@drawable/main_bg"
+        android:cropToPadding="true"
+        />
+    <RelativeLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_menu"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/tranparent_shape"
+            android:text="식단메뉴"
+            />
+        <Button
+            android:id="@+id/btn_cal"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/btn_menu"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/tranparent_shape"
+            android:text="일정"
+            />
+        <ImageView
+            android:id="@+id/btn_alarm"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_bell"
+            android:text="설정"
+            />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,25 +59,44 @@
             android:layout_weight="8"
             android:textColor="#fff"
             android:textSize="80dp"
+            android:text="성공회 알리미"
+            android:textAlignment="center"
             android:gravity="center"
-            android:text="성공회 알람 앱"
             />
         <Button
             android:id="@+id/btn_home"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textColor="#fff"
             android:textSize="25dp"
+            android:background="@drawable/common_btn_shape"
             android:layout_marginBottom="15dp"
-            android:text="성공회" />
+            android:text="소식" />
+        <Button
+            android:id="@+id/btn_qna"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:textSize="25dp"
+            android:background="@drawable/common_btn_shape"
+            android:layout_marginBottom="15dp"
+            android:text="QnA" />
         <Button
             android:id="@+id/btn_facebook"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:textColor="#fff"
             android:textSize="25dp"
+            android:background="@drawable/common_btn_shape"
             android:layout_marginBottom="15dp"
             android:text="페이스북" />
     </LinearLayout>

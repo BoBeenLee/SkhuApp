@@ -11,7 +11,10 @@ import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
 
 import com.skhu.bobinlee.skhuapp.R;
+import com.skhu.bobinlee.skhuapp.activity.HomeActivity;
 import com.skhu.bobinlee.skhuapp.activity.MainActivity;
+import com.skhu.bobinlee.skhuapp.activity.QnaActivity;
+import com.skhu.bobinlee.skhuapp.model.DBType;
 
 
 public class Notifier {
@@ -41,20 +44,22 @@ public class Notifier {
     }
 
     //TODO Other Dialogs methods
-
-    public void Notify(String title, String message){
+    public void Notify(String title, String message, String url, int dbType){
         NotificationManager notifManager = (NotificationManager) _context.getSystemService(_context.NOTIFICATION_SERVICE);
 
-        PendingIntent intent = PendingIntent.getActivity(_context, 0, new Intent(_context, MainActivity.class), 0);
+        // 해당 링크로 이동으로 하는게
+        PendingIntent intent = PendingIntent.getActivity(_context, 0, new Intent(Intent.ACTION_VIEW, Uri.parse(url)), 0);
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(_context)
-                .setSmallIcon(R.drawable.notify_icon)
+                .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setContentIntent(intent)
-                .setSound(soundUri);
-        mBuilder.setNumber(5);
+                .setSound(soundUri)
+                .setVibrate(new long[]{1000});
+
+        mBuilder.setNumber(1);
         notifManager.notify(notify_id++, mBuilder.build());
 //        Notification notifyDetails = new Notification(R.drawable.alarm,intent.getExtras().getString(KEY_TITLE),System.currentTimeMillis());
 //        notifyDetails.number = 1; ////// here you can pass the counter value which will so you th

@@ -7,14 +7,17 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.google.android.gcm.GCMRegistrar;
 import com.skhu.bobinlee.skhuapp.R;
+import com.skhu.bobinlee.skhuapp.core.SessionManager;
 import com.skhu.bobinlee.skhuapp.util.TypefaceUtil;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    private Button btnHome;
-    private Button btnEtc;
+    private Button btnHome, btnQna, btnEtc;
+    private ImageView btnAlarm;
+    private Button btnMenu, btnCal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +31,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     public void initResource(){
+        btnAlarm = (ImageView) findViewById(R.id.btn_alarm);
         btnHome = (Button) findViewById(R.id.btn_home);
+        btnQna = (Button) findViewById(R.id.btn_qna);
         btnEtc = (Button) findViewById(R.id.btn_facebook);
-
+        btnMenu = (Button) findViewById(R.id.btn_menu);
+        btnCal = (Button) findViewById(R.id.btn_cal);
         setAlarm();
     }
 
     public void initEvent(){
         btnHome.setOnClickListener(this);
+        btnQna.setOnClickListener(this);
         btnEtc.setOnClickListener(this);
+        btnMenu.setOnClickListener(this);
+        btnAlarm.setOnClickListener(this);
+        btnCal.setOnClickListener(this);
     }
 
     @Override
@@ -45,8 +55,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn_home :
                 show(HomeActivity.class);
                 break;
+            case R.id.btn_qna :
+                show(QnaActivity.class);
+                break;
             case R.id.btn_facebook :
                 show(FacebookActivity.class);
+                break;
+            case R.id.btn_menu :
+                show(MenuActivity.class);
+                break;
+            case R.id.btn_alarm :
+                show(AlarmActivity.class);
+                break;
+            case R.id.btn_cal :
+                show(CalendarActivity.class);
                 break;
         }
     }
@@ -62,10 +84,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         final String regId = GCMRegistrar.getRegistrationId(this);
         String productId = getString(R.string.product_id);
-        if (regId.equals("")) {
+//        if (regId.equals("")) {
             GCMRegistrar.register(this, productId);
-        } else {
-            Log.e("id", regId);
-        }
+//        } else {
+//            Log.e("GCMRegistrar id", regId);
+//        }
     }
 }

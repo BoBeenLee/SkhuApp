@@ -42,7 +42,18 @@
             android:name=".activity.FacebookActivity"
             android:label="@string/title_activity_facebook"
             android:theme="@style/Theme.PageIndicatorDefaults" />
-
+        <activity
+            android:name=".activity.QnaActivity"
+            android:label="@string/title_activity_qna"
+            android:theme="@style/Theme.PageIndicatorDefaults" />
+        <activity
+            android:name=".activity.AlarmActivity"
+            android:label="@string/title_activity_alarm" >
+        </activity>
+        <activity
+            android:name=".activity.MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
         <!-- receiver -->
         <receiver
             android:name="com.google.android.gcm.GCMBroadcastReceiver"
@@ -69,8 +80,8 @@
         <service android:name=".GCMIntentService" />
 
         <activity
-            android:name=".activity.AlarmActivity"
-            android:label="@string/title_activity_alarm" >
+            android:name=".activity.CalendarActivity"
+            android:label="@string/title_activity_calendar" >
         </activity>
     </application>
 

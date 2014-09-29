@@ -104,7 +104,7 @@ public class FacebookFragment extends AbstractFragment {
     }
 
     public String initReqPoNo(){
-        String reqPoNo = String.valueOf(DateUtils.stringToDate(DateUtils.currentTime()).getTime());
+        String reqPoNo = String.valueOf(DateUtils.stringToDate(DateUtils.currentTime(DateUtils.dateForm1), DateUtils.dateForm1).getTime());
         reqPoNo = reqPoNo.substring(0, reqPoNo.length() - 3);
         return reqPoNo;
     }

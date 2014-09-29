@@ -24,6 +24,7 @@ import com.skhu.bobinlee.skhuapp.adapter.HomeAdapter;
 import com.skhu.bobinlee.skhuapp.core.SessionManager;
 import com.skhu.bobinlee.skhuapp.model.APICode;
 import com.skhu.bobinlee.skhuapp.model.Category;
+import com.skhu.bobinlee.skhuapp.model.DBType;
 import com.skhu.bobinlee.skhuapp.model.Home;
 import com.skhu.bobinlee.skhuapp.model.TabMenu;
 import com.skhu.bobinlee.skhuapp.model.code.SK0001;
@@ -37,18 +38,17 @@ import org.json.JSONObject;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class HomeActivity extends AbstractAsyncActivity implements View.OnClickListener {
+public class HomeActivity extends AbstractAsyncActivity {
     private HomeAdapter mHomeAdapter;
     private PullToRefreshListView mHomeView;
     private List<Home> mHomes;
 
     private LinearLayout mCategoryLayout;
     private LinkedHashMap<String, List<Category>> mCategories;
-
-    private Button mBtnAlarm;
 
     private List<Integer> selectedCates;
     private int startNo;
@@ -72,7 +72,6 @@ public class HomeActivity extends AbstractAsyncActivity implements View.OnClickL
         mCategories = new LinkedHashMap<String, List<Category>>();
         mCategoryLayout = (LinearLayout) findViewById(R.id.category_layout);
 
-        mBtnAlarm = (Button) findViewById(R.id.btn_alarm);
         mHomeView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 
         final ListView actualListView = mHomeView.getRefreshableView();
@@ -82,7 +81,6 @@ public class HomeActivity extends AbstractAsyncActivity implements View.OnClickL
     }
 
     public void initEvent(){
-        mBtnAlarm.setOnClickListener(this);
         mHomeView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
             @Override
             public void onRefresh(PullToRefreshBase<ListView> refreshView) {
@@ -100,16 +98,6 @@ public class HomeActivity extends AbstractAsyncActivity implements View.OnClickL
         mCategoryLayout.removeAllViews();
         listCategory(SK0004.PARENT, 0, null);
         postHomes();
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btn_alarm :
-                Intent intent = new Intent(this, AlarmActivity.class);
-                startActivity(intent);
-                break;
-        }
     }
 
     public void addCategory(String name){
@@ -199,11 +187,11 @@ public class HomeActivity extends AbstractAsyncActivity implements View.OnClickL
                     mCategories.get(name).add(category);
                 }
                 if(mCategories != null) {
-                    Log.d("key", " key --- " + name);
+//                    Log.d("key", " key --- " + name);
                     addCategory(name);
-                    for (Category category : mCategories.get(name)) {
-                        Log.d("value", "value --- " + category.name);
-                    }
+//                    for (Category category : mCategories.get(name)) {
+//                        Log.d("value", "value --- " + category.name);
+//                    }
                 }
             }
         });
@@ -214,13 +202,12 @@ public class HomeActivity extends AbstractAsyncActivity implements View.OnClickL
         SK0001 sk = new SK0001();
         reqCode.tranCd = "SK0001";
 
-        for(int i=0; i<selectedCates.size(); i++)
-            Log.d("selectedCates", "selectedCates : " + selectedCates.get(i));
-
+//        for(int i=0; i<selectedCates.size(); i++)
+//            Log.d("selectedCates", "selectedCates : " + selectedCates.get(i));
         sk.cateNo = selectedCates;
-        sk.reqPoCnt = 5;
+        sk.reqPoCnt = 15;
         sk.reqPoNo = startNo;
-
+        sk.dbType = DBType.SKHU;
         reqCode.tranData = sk;
 
         PostMessageTask.postJson(this, reqCode, new JsonHttpResponseHandler() {
@@ -257,7 +244,11 @@ public class HomeActivity extends AbstractAsyncActivity implements View.OnClickL
 
     @Override
     protected void onDestroy() {
-        SessionManager.getInstance(this).createSession(selectedCates);
+        SessionManager sessionManager = SessionManager.getInstance(this);
+
+        HashMap<String, Object> sessions = sessionManager.getSessionDetails();
+        sessions.put(SessionManager.KEY_CATES, selectedCates);
+        sessionManager.setSessionDetails(sessions);
         super.onDestroy();
     }
 }

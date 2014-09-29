@@ -5,8 +5,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SK0002 {
-    @JsonProperty("_cate_no")
-    public int cateNo;
+	@JsonProperty("_cate_no")
+	public int cateNo;
 	@JsonProperty("_order_type")
 	public int orderType;
 	@JsonProperty("_req_po_cnt")
@@ -48,7 +48,7 @@ public class SK0002 {
 		public String brdLikeCnt;
 		@JsonProperty("_brd_comment_cnt")
 		public int brdCommentCnt;
-        @JsonProperty("_brd_img")
-        public String brdImgUrl;
+		@JsonProperty("_brd_img")
+		public String brdImgUrl;
 	}
 }

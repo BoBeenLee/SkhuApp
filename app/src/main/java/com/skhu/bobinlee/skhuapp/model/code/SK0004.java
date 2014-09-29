@@ -19,6 +19,8 @@ public class SK0004 {
 	public int parentCateNo;
 	@JsonProperty("_res_cnt")
 	public int resCnt;
+	@JsonProperty("_reply_state")
+	public int replyState;
 	@JsonProperty("_res")
 	public List<SK0004Category> res;
 	@JsonProperty("_res_date")

@@ -2,6 +2,7 @@ package com.skhu.bobinlee.skhuapp.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.service.textservice.SpellCheckerService;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -9,9 +10,12 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -19,9 +23,11 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.skhu.bobinlee.skhuapp.R;
 import com.skhu.bobinlee.skhuapp.adapter.AlarmAdapter;
 import com.skhu.bobinlee.skhuapp.adapter.CategoryAdapter;
+import com.skhu.bobinlee.skhuapp.core.SessionManager;
 import com.skhu.bobinlee.skhuapp.model.APICode;
 import com.skhu.bobinlee.skhuapp.model.Alarm;
 import com.skhu.bobinlee.skhuapp.model.Category;
+import com.skhu.bobinlee.skhuapp.model.DBType;
 import com.skhu.bobinlee.skhuapp.model.Home;
 import com.skhu.bobinlee.skhuapp.model.code.PS0003;
 import com.skhu.bobinlee.skhuapp.model.code.PS0004;
@@ -33,12 +39,15 @@ import com.skhu.bobinlee.skhuapp.util.JacksonUtils;
 import org.apache.http.Header;
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AlarmActivity extends Activity implements View.OnClickListener, Spinner.OnItemSelectedListener{
     private EditText mEditFilter;
-    private Button mBtnAlarm;
+    private TextView mTextEdit;
+    private Button mBtnAlarm, mBtnEdit;
     private Spinner mSpinCategory1, mSpinCategory2;
     private CategoryAdapter mCategory1Adapter, mCategory2Adapter;
     private ArrayList<Category> mCategories1, mCategories2;
@@ -67,8 +76,10 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Spi
         mCategory1Adapter = new CategoryAdapter(this, mCategories1);
         mCategory2Adapter = new CategoryAdapter(this, mCategories2);
 
+        mTextEdit = (TextView) findViewById(R.id.text_edit_alarm);
         mEditFilter = (EditText) findViewById(R.id.filter);
-        mBtnAlarm = (Button) findViewById(R.id.btn_alarm);
+        mBtnAlarm = (Button) findViewById(R.id.btn_add_alarm);
+        mBtnEdit = (Button) findViewById(R.id.btn_edit_alarm);
 
         mSpinCategory1 = (Spinner) findViewById(R.id.spin_category1);
         mSpinCategory1.setAdapter(mCategory1Adapter);
@@ -82,13 +93,16 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Spi
 
     public void initEvent(){
         mBtnAlarm.setOnClickListener(this);
+        mBtnEdit.setOnClickListener(this);
         mSpinCategory1.setOnItemSelectedListener(this);
         mSpinCategory2.setOnItemSelectedListener(this);
     }
 
     @Override
     protected void onResume() {
-        addCategories(SK0004.DEPTH, 2, 0, mCategory2Adapter);
+        mCategory2Adapter.clear();
+        addCategories(SK0004.DEPTH, 2, 0, DBType.SKHU, mCategory2Adapter);
+        addCategories(SK0004.DEPTH, 2, 0, DBType.QNA, mCategory2Adapter);
         listAlarms();
         super.onResume();
     }
@@ -96,8 +110,12 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Spi
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_alarm :
+            case R.id.btn_add_alarm :
                 addAlarm();
+                break;
+            case R.id.btn_edit_alarm :
+                mEditFilter.setVisibility(View.VISIBLE);
+                mBtnEdit.setVisibility(View.GONE);
                 break;
         }
     }
@@ -108,6 +126,9 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Spi
         reqCode.tranCd = "PS0003";
 
         ps.mac = CommonUtils.getMACAddress(this.getString(R.string.network_eth));
+        if(ps.mac == null || ps.mac.trim().equals(""))
+            ps.mac = CommonUtils.getMACAddress(getString(R.string.network_eth1));
+
         reqCode.tranData = ps;
 
         PostMessageTask.postJson(this, reqCode, new JsonHttpResponseHandler() {
@@ -137,8 +158,13 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Spi
         reqCode.tranCd = "PS0004";
 
         ps.cateNo = selectedCateNo;
-        ps.filter = mEditFilter.getText().toString();
-        ps.mac = CommonUtils.getMACAddress("eth0");
+        try {
+            ps.filter = URLEncoder.encode(mEditFilter.getText().toString(), "UTF-8");
+        } catch(Exception e){ e.printStackTrace(); }
+
+        ps.mac = CommonUtils.getMACAddress(getString(R.string.network_eth));
+        if(ps.mac == null || ps.mac.trim().equals(""))
+            ps.mac = CommonUtils.getMACAddress(getString(R.string.network_eth1));
 
         reqCode.tranData = ps;
         PostMessageTask.postJson(this, reqCode, new JsonHttpResponseHandler() {
@@ -157,13 +183,13 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Spi
         });
     }
 
-    public void addCategories(int type, int depth, int parentNo, final CategoryAdapter adapter){
+    public void addCategories(int type, int depth, int parentNo, int dbType, final CategoryAdapter adapter){
         APICode reqCode = new APICode();
         SK0004 sk = new SK0004();
         reqCode.tranCd = "SK0004";
 
         sk.type = type;
-        sk.dbType = 1;
+        sk.dbType = dbType;
         sk.depth = depth;
         sk.parentCateNo = parentNo;
         reqCode.tranData = sk;
@@ -175,13 +201,13 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Spi
                 SK0004 sk = resCode.tranData;
                 List<SK0004.SK0004Category> categories = sk.res;
 
-                adapter.clear();
                 for (int i=0; categories != null && i < categories.size(); i++) {
                     Category category = new Category();
                     category.cateNo = categories.get(i).cateNo;
                     category.cateId = categories.get(i).cateId;
                     category.depth = categories.get(i).depth;
                     category.name = categories.get(i).name;
+                    category.dbType = categories.get(i).dbType;
                     category.parentCateNo = categories.get(i).parentCateNo;
                     adapter.add(category);
                 }
@@ -194,10 +220,10 @@ public class AlarmActivity extends Activity implements View.OnClickListener, Spi
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if(parent.equals(mSpinCategory1)){
             selectedCateNo = mCategories1.get(position).cateNo;
-            Toast.makeText(this, "1 : " + selectedCateNo, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "1 : " + selectedCateNo, Toast.LENGTH_SHORT).show();
         } else if(parent.equals(mSpinCategory2)){
-//            Toast.makeText(this, "2 : " + position, Toast.LENGTH_SHORT).show();
-            addCategories(SK0004.PARENT, 0, mCategories2.get(position).cateNo, mCategory1Adapter);
+            mCategory1Adapter.clear();
+            addCategories(SK0004.PARENT, 0, mCategories2.get(position).cateNo, mCategories2.get(position).dbType, mCategory1Adapter);
         }
     }
 

@@ -16,7 +16,9 @@ import com.skhu.bobinlee.skhuapp.R;
 import com.skhu.bobinlee.skhuapp.core.SessionManager;
 import com.skhu.bobinlee.skhuapp.model.Facebook;
 import com.skhu.bobinlee.skhuapp.thread.DownloadImageTask;
+import com.skhu.bobinlee.skhuapp.util.DateUtils;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -59,11 +61,11 @@ public class FacebookAdapter extends BaseAdapter {
         if(convertView != null)
             holder = (Holder) convertView.getTag();
 
-        if(convertView == null || holder.postition != position){
+        if(convertView == null || holder.position != position){
             convertView = mInflater.inflate(R.layout.list_facebook_item, null);
             holder = new Holder();
 
-            holder.postition = position;
+            holder.position = position;
             holder.no = (TextView) convertView.findViewById(R.id.facebook_no);
             holder.content = (TextView) convertView.findViewById(R.id.facebook_content);
             holder.img = (ImageView) convertView.findViewById(R.id.facebook_img);
@@ -80,7 +82,9 @@ public class FacebookAdapter extends BaseAdapter {
                 new DownloadImageTask(holder.img).execute(mFacebooks.get(position).img);
             }
             holder.writer.setText(mFacebooks.get(position).writer);
-            holder.created.setText(mFacebooks.get(position).created);
+
+            Timestamp created = DateUtils.stringToDate(mFacebooks.get(position).created, DateUtils.dateForm1);
+            holder.created.setText(DateUtils.dateToString(created, DateUtils.dateForm2));
 
             // event
             convertView.setOnClickListener(new View.OnClickListener(){
@@ -107,7 +111,7 @@ public class FacebookAdapter extends BaseAdapter {
 
     private class Holder {
         public int refresh;
-        public int postition;
+        public int position;
         public TextView no, content, writer, created;
         public ImageView img;
     }
