@@ -3,25 +3,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="#f0f0eb"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="2dip" >
-
+    android:padding="5dp" >
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14dip"
+        android:textSize="11dp"
         android:textStyle="bold" >
     </TextView>
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/date_text"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:textSize="14dip"
-        android:visibility="gone">
+        android:layout_height="80dp"
+        android:textColor="#000"
+        android:textSize="9dp">
     </TextView>
-
 </LinearLayout>

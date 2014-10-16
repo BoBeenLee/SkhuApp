@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="78dp"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:background="#f0f0eb"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/qna_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="#e84948"
+        android:gravity="center"
+        android:textSize="11dp"
+        android:textColor="#fff"
+        android:text="reply"
+        />
+
+    <TextView
+        android:id="@+id/qna_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textColor="#1b3645"
+        android:text="Title" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,13 +39,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
-            android:text="No" />
+            android:text="No"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/qna_writer"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
+            android:textSize="13dp"
+            android:textColor="#797979"
             android:text="Writer" />
 
         <TextView
@@ -28,18 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
-            android:text="date" />
-
-        <TextView
-            android:id="@+id/qna_reply"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:textSize="13dp"
+            android:textColor="#797979"
             android:text="date" />
     </LinearLayout>
-    <TextView
-        android:id="@+id/qna_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:text="Title" />
 </LinearLayout>

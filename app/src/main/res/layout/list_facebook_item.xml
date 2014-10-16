@@ -2,13 +2,14 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="25dp"
+    android:layout_height="wrap_content"
+    android:background="#f0f0eb"
+    android:padding="16dp"
     android:orientation="vertical">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/facebook_no"
@@ -23,12 +24,17 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
+            android:textColor="#1b3645"
+            android:textSize="14dp"
             android:text="Writer"
             />
         <TextView
             android:id="@+id/facebook_created"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textColor="#797979"
+            android:textSize="10dp"
+            android:gravity="bottom"
             android:text="date"
             />
     </LinearLayout>
@@ -36,6 +42,7 @@
         android:id="@+id/facebook_img"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
         android:padding="10dp"
         android:visibility="gone"
         />
@@ -43,7 +50,10 @@
         android:id="@+id/facebook_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:visibility="gone"
+        android:textColor="#1b3645"
+        android:textSize="13dp"
         android:text="Title"
         />
 </LinearLayout>

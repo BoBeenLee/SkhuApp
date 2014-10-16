@@ -12,10 +12,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.skhu.bobinlee.skhuapp.R;
+import com.skhu.bobinlee.skhuapp.model.Category;
 import com.skhu.bobinlee.skhuapp.model.Home;
 import com.skhu.bobinlee.skhuapp.model.code.SK0001;
 
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by BoBinLee on 2014-08-25.
@@ -24,7 +29,6 @@ public class HomeAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater mInflater;
     private List<Home> mHomes;
-
     private int refreshCnt;
 
     public HomeAdapter(Context context, List<Home> homes) {
@@ -67,11 +71,15 @@ public class HomeAdapter extends BaseAdapter {
             holder.title = (TextView) convertView.findViewById(R.id.home_title);
             holder.writer = (TextView) convertView.findViewById(R.id.home_writer);
             holder.created = (TextView) convertView.findViewById(R.id.home_created);
+            holder.category1 = (TextView) convertView.findViewById(R.id.home_category1);
+            holder.category2 = (TextView) convertView.findViewById(R.id.home_category2);
 
             holder.no.setText("" + (position + 1));
             holder.title.setText(mHomes.get(position).title);
             holder.writer.setText(mHomes.get(position).writer);
             holder.created.setText(mHomes.get(position).created);
+            holder.category1.setText(mHomes.get(position).cateNm);
+            holder.category2.setText(mHomes.get(position).parentCateNm);
 
             // event
             convertView.setOnClickListener(new View.OnClickListener(){
@@ -99,7 +107,7 @@ public class HomeAdapter extends BaseAdapter {
     private class Holder {
         public int refresh;
         public int position;
-        public TextView no, title, writer, created;
+        public TextView no, title, writer, created, category1, category2;
     }
 
     public void add(Home home){

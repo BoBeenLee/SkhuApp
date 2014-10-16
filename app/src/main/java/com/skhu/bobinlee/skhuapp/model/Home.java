@@ -11,6 +11,7 @@ public class Home {
     public String no;
     public String title, writer, cateNm, created;
     public String link, content;
+    public String parentCateNm;
     public int cateNo;
     public List<String> imgs, attaches;
 }

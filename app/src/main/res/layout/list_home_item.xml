@@ -2,12 +2,15 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f0f0eb"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="16dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal">
 
         <TextView
@@ -15,25 +18,66 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
-            android:text="No" />
+            android:text="No"
+            android:visibility="gone" />
 
         <TextView
-            android:id="@+id/home_writer"
+            android:id="@+id/home_category2"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:text="Writer" />
+            android:layout_height="wrap_content"
+            android:text="notice"
+            android:textColor="#797979"
+            android:textSize="13dp" />
 
         <TextView
-            android:id="@+id/home_created"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="date" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text=">"
+            android:textColor="#797979"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/home_category1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notice"
+            android:textColor="#797979"
+            android:textSize="13dp" />
+
     </LinearLayout>
 
     <TextView
         android:id="@+id/home_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title" />
+        android:layout_marginBottom="8dp"
+        android:text="Title"
+        android:textColor="#1b3645"
+        android:textSize="14dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/home_created"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:text="date"
+            android:textColor="#797979"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/home_writer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Writer"
+            android:textColor="#797979"
+            android:textSize="11dp" />
+    </LinearLayout>
+
 </LinearLayout>

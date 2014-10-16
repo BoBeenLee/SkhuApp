@@ -1,6 +1,7 @@
 package com.skhu.bobinlee.skhuapp.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,11 @@ public class CategoryAdapter extends BaseAdapter {
     private List<Category> mCategories;
     private LayoutInflater mInflater;
     private int refreshCnt;
+    public int num;
 
-    public CategoryAdapter(Context context, List<Category> categories) {
+    public CategoryAdapter(Context context, List<Category> categories, int num) {
         super();
+        this.num = num;
         mContext = context;
         mCategories = categories;
         refreshCnt = 0;
@@ -43,10 +46,11 @@ public class CategoryAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.list_category_item, null);
             holder = new Holder();
 
+//            Log.d("Category Adapter : ", "Category Adapter " + num + " : " + position + " - " + mCategories.get(position).cateNo);
+
             holder.refresh = refreshCnt;
             holder.position = position;
             holder.categoryName = (TextView) convertView.findViewById(R.id.category_name);
-
             holder.categoryName.setText(mCategories.get(position).name);
             convertView.setTag(holder);
         }
@@ -57,6 +61,10 @@ public class CategoryAdapter extends BaseAdapter {
         public int refresh;
         public int position;
         public TextView categoryName;
+    }
+
+    public Category get(int index){
+        return mCategories.get(index);
     }
 
     @Override

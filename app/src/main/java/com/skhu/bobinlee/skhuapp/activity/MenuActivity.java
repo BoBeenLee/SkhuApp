@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuActivity extends AbstractAsyncActivity {
+public class MenuActivity extends CommonActivity {
     private ListView mFoodView;
     private FoodAdapter mFoodAdapter;
     List<Food> mFoods;
@@ -35,21 +36,24 @@ public class MenuActivity extends AbstractAsyncActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        super.onCreate(savedInstanceState);
         initResource();
     }
 
-    public void initResource(){
+    public void initResource() {
         mFoods = new ArrayList<Food>();
         mFoodAdapter = new FoodAdapter(this, mFoods);
 
         mFoodView = (ListView) findViewById(R.id.normal_list);
         mFoodView.setAdapter(mFoodAdapter);
+
+        // settings
+        mBtnMenu.setVisibility(View.GONE);
         getMenu();
     }
 
-    public void getMenu(){
+    public void getMenu() {
         APICode reqCode = new APICode();
         SK0005 sk = new SK0005();
         reqCode.tranCd = "SK0005";
@@ -61,7 +65,7 @@ public class MenuActivity extends AbstractAsyncActivity {
                 });
                 SK0005 sk = resCode.tranData;
 
-                for(int i=0; sk.res != null && i < sk.res.size(); i++){
+                for (int i = 0; sk.res != null && i < sk.res.size(); i++) {
                     Food food = new Food();
                     food.date = sk.res.get(i).menuDate;
                     food.lunch = sk.res.get(i).lunch;

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,6 @@ import com.skhu.bobinlee.skhuapp.model.APICode;
 import com.skhu.bobinlee.skhuapp.model.code.SK0006;
 import com.skhu.bobinlee.skhuapp.thread.PostMessageTask;
 import com.skhu.bobinlee.skhuapp.util.JacksonUtils;
-import com.squareup.timessquare.CalendarPickerView;
 //import com.squareup.timessquare.CalendarPickerView;
 
 
@@ -31,19 +31,18 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class CalendarActivity extends AbstractAsyncActivity implements View.OnClickListener {
+public class CalendarActivity extends CommonActivity implements View.OnClickListener {
     public GridView mCalendarView;
     public CalendarAdapter mCalendarAdapter;// adapter instance
     public Calendar mCurrentCalendar;
-    public Button mBtnPrev, mBtnNext;
+    public ImageView mBtnPrev, mBtnNext;
     public TextView mCalendarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-
+        super.onCreate(savedInstanceState);
         initResource();
         initEvent();
     }
@@ -56,12 +55,15 @@ public class CalendarActivity extends AbstractAsyncActivity implements View.OnCl
 
         mCalendarView.setAdapter(mCalendarAdapter);
 
-        mBtnPrev = (Button) findViewById(R.id.btn_calendar_prev);
-        mBtnNext = (Button) findViewById(R.id.btn_calendar_next);
+        mBtnPrev = (ImageView) findViewById(R.id.btn_calendar_prev);
+        mBtnNext = (ImageView) findViewById(R.id.btn_calendar_next);
         mCalendarTitle = (TextView) findViewById(R.id.calendar_text);
 
         mCalendarTitle.setText(mCurrentCalendar.get(Calendar.YEAR) + "년 " + (mCurrentCalendar.get(Calendar.MONTH) + 1) + "월");
         addCalendars(mCurrentCalendar.get(Calendar.YEAR), mCurrentCalendar.get(Calendar.MONTH));
+
+        // settings
+        mBtnCalendar.setVisibility(View.GONE);
     }
 
     public void initEvent(){
@@ -85,12 +87,13 @@ public class CalendarActivity extends AbstractAsyncActivity implements View.OnCl
     }
 
     public void addCalendars(int year, int month){
+        showLoadingProgressDialog();
         APICode reqCode = new APICode();
         SK0006 sk = new SK0006();
         reqCode.tranCd = "SK0006";
 
         sk.year = year;
-        sk.month = month;
+        sk.month = month + 1;
         reqCode.tranData = sk;
 
         PostMessageTask.postJson(this, reqCode, new JsonHttpResponseHandler() {
@@ -126,6 +129,7 @@ public class CalendarActivity extends AbstractAsyncActivity implements View.OnCl
                 }
                 mCalendarAdapter.setContents(sDates);
                 mCalendarAdapter.notifyDataSetChanged();
+                dismissProgressDialog();
             }
         });
     }

@@ -42,42 +42,54 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class HomeActivity extends AbstractAsyncActivity {
+public class HomeActivity extends CommonActivity {
     private HomeAdapter mHomeAdapter;
     private PullToRefreshListView mHomeView;
     private List<Home> mHomes;
 
     private LinearLayout mCategoryLayout;
     private LinkedHashMap<String, List<Category>> mCategories;
-
+    private HashMap<Integer, String> mParentCategories, selectedParentCateNms;
     private List<Integer> selectedCates;
     private int startNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        super.onCreate(savedInstanceState);
         initResource();
         initEvent();
     }
 
     public void initResource(){
         selectedCates = (List<Integer>) SessionManager.getInstance(this).getSessionDetails().get(SessionManager.KEY_CATES);
+        selectedParentCateNms = (HashMap<Integer, String>) SessionManager.getInstance(this).getSessionDetails().get(SessionManager.KEY_PARENT_CATE_NM);
+
+        if(selectedParentCateNms == null)
+            selectedParentCateNms = new HashMap<Integer, String>();
+//        else {
+//            for (Integer num : selectedParentCateNms.keySet()) {
+//                Log.d("parentcates : ", "parentcate : " + num);
+//            }
+//        }
         if(selectedCates == null)
             selectedCates = new ArrayList<Integer>();
+
         mHomes = new ArrayList<Home>();
-
         mCategories = new LinkedHashMap<String, List<Category>>();
-        mCategoryLayout = (LinearLayout) findViewById(R.id.category_layout);
+        mParentCategories = new HashMap<Integer, String>();
 
+        mCategoryLayout = (LinearLayout) findViewById(R.id.category_layout);
         mHomeView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 
         final ListView actualListView = mHomeView.getRefreshableView();
         mHomeAdapter = new HomeAdapter(this, mHomes);
 
         actualListView.setAdapter(mHomeAdapter);
+
+        // settings
+        mBtnHome.setVisibility(View.GONE);
     }
 
     public void initEvent(){
@@ -100,8 +112,10 @@ public class HomeActivity extends AbstractAsyncActivity {
         postHomes();
     }
 
-    public void addCategory(String name){
+    public void addCategory(final String name){
         int columnSize = mCategories.get(name).size() / 2 + 1;
+        int nameColor = getResources().getColor(R.color.category_name);
+        int contentColor = getResources().getColor(R.color.category_content);
 
         GridLayout gridLayout = new GridLayout(this);
         gridLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -112,6 +126,9 @@ public class HomeActivity extends AbstractAsyncActivity {
 
         TextView categoryName = new TextView(this);
         categoryName.setText(name);
+        categoryName.setTextSize(13f);
+        categoryName.setTextColor(nameColor);
+        categoryName.setPadding(10, 0, 0, 0);
         GridLayout.LayoutParams params = new GridLayout.LayoutParams();
         params.columnSpec = GridLayout.spec(0, columnSize);
         categoryName.setLayoutParams(params);
@@ -121,16 +138,20 @@ public class HomeActivity extends AbstractAsyncActivity {
         for(final Category category : mCategories.get(name)){
             CheckBox checkBox = new CheckBox(this);
             checkBox.setText(category.name);
+            checkBox.setTextColor(contentColor);
             if(selectedCates.contains(category.cateNo))
                 checkBox.setChecked(true);
             checkBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener(){
                 Integer cateNo = new Integer(category.cateNo);
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if(isChecked)
+                    if(isChecked) {
+                        selectedParentCateNms.put(cateNo, name);
                         selectedCates.add(cateNo);
-                    else
+                    } else {
+                        selectedParentCateNms.remove(cateNo);
                         selectedCates.remove(cateNo);
+                    }
                     startNo = 0;
                     postHomes();
                 }
@@ -138,6 +159,12 @@ public class HomeActivity extends AbstractAsyncActivity {
             gridLayout.addView(checkBox);
         }
         mCategoryLayout.addView(gridLayout);
+
+        // seperator line
+//        View view = new View(this);
+//        LinearLayout.LayoutParams viewParams = new LinearLayout.LayoutParams(1, 1);
+//        view.setBackgroundColor(getResources().getColor(R.color.home_seperator));
+//        mCategoryLayout.addView(view);
     }
 
     public void listCategory(int type, int parentNo, String name){
@@ -185,6 +212,7 @@ public class HomeActivity extends AbstractAsyncActivity {
                     category.name = categories.get(i).name;
                     category.cateNo = categories.get(i).cateNo;
                     mCategories.get(name).add(category);
+                    mParentCategories.put(category.cateNo, name);
                 }
                 if(mCategories != null) {
 //                    Log.d("key", " key --- " + name);
@@ -233,6 +261,7 @@ public class HomeActivity extends AbstractAsyncActivity {
                     home.link = article.brdUrl;
                     home.attaches = article.brdAttachUrls;
                     home.imgs = article.brdImgUrls;
+                    home.parentCateNm = selectedParentCateNms.get(home.cateNo);
                     mHomeAdapter.add(home);
                 }
                 startNo = sk.resLastNo;
@@ -248,6 +277,7 @@ public class HomeActivity extends AbstractAsyncActivity {
 
         HashMap<String, Object> sessions = sessionManager.getSessionDetails();
         sessions.put(SessionManager.KEY_CATES, selectedCates);
+        sessions.put(SessionManager.KEY_PARENT_CATE_NM, selectedParentCateNms);
         sessionManager.setSessionDetails(sessions);
         super.onDestroy();
     }

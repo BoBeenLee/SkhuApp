@@ -6,4 +6,9 @@
     <color name="black">#000</color>
     <color name="blue">#00f</color>
     <color name="red">#f00</color>
+    <color name="prepare_reply">#33db8d</color>
+    <color name="category_name">#33db8d</color>
+    <color name="category_content">#fff</color>
+    <color name="common_background">#1b3645</color>
+    <color name="home_seperator">#1b3645</color>
 </resources>

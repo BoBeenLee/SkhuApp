@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.skhu.bobinlee.skhuapp.R;
+import com.skhu.bobinlee.skhuapp.util.CommonUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -25,7 +26,7 @@ import java.util.Locale;
 
 public class CalendarAdapter extends BaseAdapter {
     private final static String[] weekText = {"일", "월", "화", "수", "목", "금", "토"};
-    private final static int TOTAL_COUNT = 7 * 6;
+    private final static int TOTAL_COUNT = 7 * 7;
     private final static int WEEK_NUM = 7;
     private Context mContext;
     private LayoutInflater mInflater;
@@ -71,18 +72,20 @@ public class CalendarAdapter extends BaseAdapter {
             if(position < WEEK_NUM){
 //                Log.d("weekTextNum ", "weekTextNum : " + weekTextNum + " - " + weekText[weekTextNum] + " position : " + position + " refresh : " + refreshCnt);
                 holder.num.setText("" + weekText[position]);
+                int paddingDp = (int)CommonUtils.pxToDp(mContext, 16);
+                holder.num.setPadding(paddingDp, paddingDp, paddingDp, paddingDp);
+                holder.num.setTextSize(15f);
+                holder.content.setVisibility(View.GONE);
             } else if(WEEK_NUM <= position){
-                int weekNum = (position % 7) + 1;
-                if(weekNum == mCurrentCalendar.get(Calendar.DAY_OF_WEEK) && !startCalendar)
-                    startCalendar = true;
-                if(mCurrentCalendar.getActualMaximum(Calendar.DATE) == mCount - 1)
-                    endCalendar = true;
-                if(startCalendar && !endCalendar) {
-                    holder.content.setVisibility(View.VISIBLE);
-                    if(mDates[mCount - 1] != null) {
-                        holder.content.setText("" + mDates[mCount - 1]);
+//                Log.d("curCalendar : ", "curCalendar : " + WEEK_NUM + " - " + mCurrentCalendar.getActualMaximum(Calendar.DATE) + " - " + (mCurrentCalendar.get(Calendar.DAY_OF_WEEK) - 1) + " - " + position);
+                int startDate = WEEK_NUM + (mCurrentCalendar.get(Calendar.DAY_OF_WEEK) - 1);
+//                Log.d("calendar", "calendar : " + startDate + " = " + (startDate + mCurrentCalendar.getActualMaximum(Calendar.DATE)));
+                if(startDate <= position && position < startDate + mCurrentCalendar.getActualMaximum(Calendar.DATE)) {
+                    int idx = position - startDate;
+                    if(mDates[idx] != null) {
+                        holder.content.setText("" + mDates[idx]);
                     }
-                    holder.num.setText("" + mCount++);
+                    holder.num.setText("" + (idx + 1));
                 }
             }
             convertView.setTag(holder);

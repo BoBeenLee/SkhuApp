@@ -35,7 +35,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FacebookActivity extends AbstractAsyncActivity {
+public class FacebookActivity extends CommonActivity {
     private ArrayList<TabMenu> menus;
 
     private TabFragmentPagerAdapter tabFragmentPagerAdapter;
@@ -45,9 +45,8 @@ public class FacebookActivity extends AbstractAsyncActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_facebook);
-
+        super.onCreate(savedInstanceState);
         initResource();
         initEvent();
     }

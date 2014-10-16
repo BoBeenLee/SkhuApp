@@ -93,6 +93,7 @@ public class QnaAdapter extends BaseAdapter {
             switch (state){
                 case 1 :
                     replyState = "확인중";
+                    holder.replyState.setBackgroundColor(mContext.getResources().getColor(R.color.prepare_reply));
                     break;
                 case 2 :
                     replyState = "답변완료";
@@ -120,7 +121,7 @@ public class QnaAdapter extends BaseAdapter {
                             mContext.startActivity(intent);
                         }
                     });
-                    confirmDialog.setNeutralButton("알랑 설정", new DialogInterface.OnClickListener() {
+                    confirmDialog.setNeutralButton("알리미 설정", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             addAlarm(mQnas.get(position).cateNo, mQnas.get(position).no, mQnas.get(position).title);
@@ -152,9 +153,7 @@ public class QnaAdapter extends BaseAdapter {
             ps.filter = URLEncoder.encode(filter, "UTF-8");
         } catch(Exception e){ e.printStackTrace(); }
 
-        ps.mac = CommonUtils.getMACAddress(mContext.getString(R.string.network_eth));
-        if(ps.mac == null || ps.mac.trim().equals(""))
-            ps.mac = CommonUtils.getMACAddress(mContext.getString(R.string.network_eth1));
+        ps.mac = CommonUtils.getMACAddress(mContext);
 
         reqCode.tranData = ps;
         PostMessageTask.postJson(mContext, reqCode, new JsonHttpResponseHandler() {

@@ -82,10 +82,7 @@ public class AlarmAdapter extends BaseAdapter {
 
     public void removeAlarm(long alarmNo, final int position){
         PS0005 ps = new PS0005();
-        ps.mac = CommonUtils.getMACAddress(mContext.getString(R.string.network_eth));
-        if(ps.mac == null || ps.mac.trim().equals(""))
-            ps.mac = CommonUtils.getMACAddress(mContext.getString(R.string.network_eth1));
-
+        ps.mac = CommonUtils.getMACAddress(mContext);
         ps.alarmNo = alarmNo;
 
         APICode<PS0005> reqCode = new APICode<PS0005>();

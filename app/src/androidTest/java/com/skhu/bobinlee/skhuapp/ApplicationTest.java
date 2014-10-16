@@ -16,7 +16,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
 
 
     public void macTest(){
-        Log.d("test", "Test : eth0 " + CommonUtils.getMACAddress("eth0")); // show value
-        Log.d("test", "Test : wlan0 " + CommonUtils.getMACAddress("wlan0")); // show null
+//        Log.d("test", "Test : eth0 " + CommonUtils.getMACAddress("eth0")); // show value
+//        Log.d("test", "Test : wlan0 " + CommonUtils.getMACAddress("wlan0")); // show null
     }
 }

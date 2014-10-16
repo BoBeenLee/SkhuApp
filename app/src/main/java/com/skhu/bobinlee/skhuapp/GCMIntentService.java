@@ -3,6 +3,7 @@ package com.skhu.bobinlee.skhuapp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.service.textservice.SpellCheckerService;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -24,24 +25,23 @@ import org.apache.http.Header;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class GCMIntentService extends GCMBaseIntentService {
     private static final String TAG = "GCMIntentService";
 
     @Override
     protected void onRegistered(final Context context, final String registrationId) {
-        Log.i(TAG, "Device registered : " + registrationId);
-
+//        Log.i(TAG, "Device registered : " + registrationId);
         postGCM(context, registrationId);
     }
 
     public void postGCM(final Context context, String registrationId){
         PS0001 ps = new PS0001();
-        ps.mac = CommonUtils.getMACAddress(context.getString(R.string.network_eth));
-        if(ps.mac == null || ps.mac.trim().equals(""))
-            ps.mac = CommonUtils.getMACAddress(context.getString(R.string.network_eth1));
 
+        ps.mac = CommonUtils.getMACAddress(context);
         ps.pushTokenId = registrationId;
         ps.pushYn = "Y";
      
@@ -66,15 +66,13 @@ public class GCMIntentService extends GCMBaseIntentService {
     
     @Override
     protected void onUnregistered(Context context, String registrationId) {
-        Log.i(TAG, "Device unregistered : " + registrationId);
-
+//        Log.i(TAG, "Device unregistered : " + registrationId);
     }
 
     @Override
     protected void onMessage(Context context, Intent intent) {
         // cateNM subject dbType
-        Log.i(TAG, "Received new message : " + intent.getStringExtra("cateNM") + " - " + intent.getStringExtra("subject"));
-
+//        Log.i(TAG, "Received new message : " + intent.getStringExtra("cateNM") + " - " + intent.getStringExtra("subject"));
         String cateNM = intent.getStringExtra("cateNM");
         String subject = intent.getStringExtra("subject");
         String url = intent.getStringExtra("url");

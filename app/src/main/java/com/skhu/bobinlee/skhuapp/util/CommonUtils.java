@@ -1,8 +1,14 @@
 package com.skhu.bobinlee.skhuapp.util;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.provider.Settings;
+import android.util.DisplayMetrics;
+import android.util.Log;
+
+import com.skhu.bobinlee.skhuapp.core.SessionManager;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -48,33 +54,40 @@ public class CommonUtils {
         return null;
     }
 
-    /**
-     * Returns MAC address of the given interface name.
-     * @param interfaceName eth0, wlan0 or NULL=use first interface
-     * @return  mac address or empty string
-     */
-    public static String getMACAddress(String interfaceName) {
-        try {
-            List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
-            for (NetworkInterface intf : interfaces) {
-                if (interfaceName != null) {
-                    if (!intf.getName().equalsIgnoreCase(interfaceName)) continue;
-                }
-                byte[] mac = intf.getHardwareAddress();
-                if (mac==null) return "";
-                StringBuilder buf = new StringBuilder();
-                for (int idx=0; idx<mac.length; idx++)
-                    buf.append(String.format("%02X:", mac[idx]));
-                if (buf.length()>0) buf.deleteCharAt(buf.length()-1);
-                return buf.toString();
-            }
-        } catch (Exception ex) { } // for now eat exceptions
-        return "";
-        /*try {
-            // this is so Linux hack
-            return loadFileAsString("/sys/class/net/" +interfaceName + "/address").toUpperCase().trim();
-        } catch (IOException ex) {
-            return null;
-        }*/
+    public static String getMACAddress(Context context) {
+        String str = Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+//        Log.d("android_id", "android_id : " + str);
+        return str;
+//        try {
+//            List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+//            for (NetworkInterface intf : interfaces) {
+//                if (interfaceName != null) {
+//                    if (!intf.getName().equalsIgnoreCase(interfaceName)) continue;
+//                }
+//                byte[] mac = intf.getHardwareAddress();
+//                if (mac==null) return "";
+//                StringBuilder buf = new StringBuilder();
+//                for (int idx=0; idx<mac.length; idx++)
+//                    buf.append(String.format("%02X:", mac[idx]));
+//                if (buf.length()>0) buf.deleteCharAt(buf.length()-1);
+//                return buf.toString();
+//            }
+//        } catch (Exception ex) { } // for now eat exceptions
+//        return "";
+    }
+
+    public static float dpToPx(Context context, float dp) {
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float px = dp * (metrics.densityDpi / 160f);
+        return px;
+    }
+
+    public static float pxToDp(Context context, float px) {
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        float dp = px / (metrics.densityDpi / 160f);
+        return dp;
     }
 }

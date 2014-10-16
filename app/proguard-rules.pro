@@ -15,3 +15,18 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keep class com.skhu.bobinlee.skhuapp.util.BeanUtils
+-dontwarn com.fasterxml.**
+-dontwarn org.joda.**
+-dontwarn android.support.**
+
+-keep class  org.joda.** {*;}
+-keep class  com.fasterxml.** {*;}
+-keep class  com.google.** {*;}
+-keep class  com.loopj.** {*;}
+-keep class  com.handmark.** {*;}
+-keep class  org.apache.** {*;}
+-keep class  org.json.** {*;}
+
+-keepattributes Signature,*Annotation*,EnclosingMethod
