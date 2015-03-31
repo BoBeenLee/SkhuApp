@@ -67,6 +67,9 @@ public class CommonActivity extends AbstractAsyncActivity {
 
 //            Log.d("start", "start");
             activity.startActivity(intent);
+            activity.overridePendingTransition(0, 0);
+
+//            activity.overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
             activity.finish();
         }
     }

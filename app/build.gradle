@@ -6,14 +6,15 @@ android {
 
     defaultConfig {
         applicationId "com.skhu.bobinlee.skhuapp"
-        minSdkVersion 16
+        minSdkVersion 11
         targetSdkVersion 20
-        versionCode 5
-        versionName "2.1"
+        versionCode 6
+        versionName "2.2"
     }
+
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

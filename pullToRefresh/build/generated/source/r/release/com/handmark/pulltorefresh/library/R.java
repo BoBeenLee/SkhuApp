@@ -15,15 +15,13 @@ public final class R {
         public static int slide_out_to_top=0x7f040003;
     }
     public static final class attr {
-        /**  BELOW HERE ARE DEPRECEATED. DO NOT USE. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int ptrAdapterViewBackground=0x7f010022;
-        /**  Style of Animation should be used displayed when pulling. 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -31,8 +29,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrAnimationStyle=0x7f01000c;
-        /**  Drawable to use as Loading Indicator. Changes both Header and Footer. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int ptrDrawable=0x7f010006;
@@ -40,13 +37,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int ptrDrawableBottom=0x7f010024;
-        /**  Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int ptrDrawableEnd=0x7f010008;
-        /**  Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int ptrDrawableStart=0x7f010007;
@@ -62,8 +57,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrFriction=0x7f010013;
-        /**  Styles of Progress Bar Layout for google style pull to refresh 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -71,8 +65,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrGoogleProgressStyle=0x7f01000f;
-        /**  Styles of Animation for google style pull to refresh 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -80,34 +73,29 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrGoogleViewStyle=0x7f01000e;
-        /**  A drawable to use as the background of the Header and Footer Loading Views 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int ptrHeaderBackground=0x7f010001;
-        /**  Text Color of the Header and Footer Loading Views Sub Header 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int ptrHeaderSubTextColor=0x7f010003;
-        /**  Base text color, typeface, size, and style for Header and Footer Loading Views 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int ptrHeaderTextAppearance=0x7f01000a;
-        /**  Text Color of the Header and Footer Loading Views 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static int ptrHeaderTextColor=0x7f010002;
-        /**  Duration of  Refreshable view's fade-in/out animation 
-         <p>Must be an integer value, such as "<code>100</code>".
+        /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -115,14 +103,12 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrHideRefeshableViewWhileRefreshingDuration=0x7f01001e;
-        /**  Whether Refreshable view is hidden when refreshing 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
         public static int ptrHideRefeshableViewWhileRefreshingEnabled=0x7f01001b;
-        /**   
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -130,18 +116,12 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrIndicatorStyle=0x7f01000d;
-        /** 
-        	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
-        	able to scroll while refreshing, and behaves better. It acheives this by adding
-        	Header and/or Footer Views to the ListView.
-        
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
         public static int ptrListViewExtrasEnabled=0x7f010017;
-        /**  Mode of Pull-to-Refresh that should be used 
-         <p>Must be one or more (separated by '|') of the following constant values.</p>
+        /** <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -153,19 +133,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>both</code></td><td>0x3</td><td></td></tr>
 <tr><td><code>manualOnly</code></td><td>0x4</td><td></td></tr>
 <tr><td><code>google</code></td><td>0x5</td><td></td></tr>
-<tr><td><code>pullDownFromTop</code></td><td>0x1</td><td> These last two are depreacted </td></tr>
+<tr><td><code>pullDownFromTop</code></td><td>0x1</td><td></td></tr>
 <tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
 </table>
          */
         public static int ptrMode=0x7f010004;
-        /**  Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
         public static int ptrOverScroll=0x7f010009;
-        /**  Label attributes of Loading layout 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -181,8 +159,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrRefeshableViewProgressBarOnCenterHeight=0x7f010021;
-        /**  These attrs are enabled to set width or height of Rotating progress bar on center 
-         <p>Must be an integer value, such as "<code>100</code>".
+        /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -198,8 +175,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrRefreshLabel=0x7f010011;
-        /**  A drawable to use as the background of the Refreshable View 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -213,32 +189,22 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrReleaseLabel=0x7f010012;
-        /** 
-        	Whether the Drawable should be continually rotated as you pull. This only
-        	takes effect when using the 'Rotate' Animation Style.
-        
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
         public static int ptrRotateDrawableWhilePulling=0x7f010018;
-        /**  Whether the user can scroll while the View is Refreshing 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
         public static int ptrScrollingWhileRefreshingEnabled=0x7f010016;
-        /** 
-             Whether Google style view layout's size is set to ActionBar's size 
-        	 (Don't set to false as possible, it's hard to control height if this flag is false)
-        
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
         public static int ptrSetGoogleViewLayoutSizeToActionbarHeight=0x7f010019;
-        /**  Duration of Google style view layout's fade-in/out animation 
-         <p>Must be an integer value, such as "<code>100</code>".
+        /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -246,15 +212,12 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrShowGoogleStyleViewAnimationDuration=0x7f01001d;
-        /**  Animation Options only for google Style mode 
- Whether Google style view layout's fade-in animation is shown when pulling 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
         public static int ptrShowGoogleStyleViewAnimationEnabled=0x7f01001a;
-        /**  Whether the Indicator overlay(s) should be used 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
@@ -275,13 +238,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrSmoothScrollLongDuration=0x7f010015;
-        /**  Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static int ptrSubHeaderTextAppearance=0x7f01000b;
-        /**  Duration of rotating progress bar's fade-in/out animation 
-         <p>Must be an integer value, such as "<code>100</code>".
+        /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -289,8 +250,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static int ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration=0x7f01001f;
-        /**  Whether Rotating progress bar is shown when refreshing 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
@@ -373,49 +333,43 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrAdapterViewBackground com.handmark.pulltorefresh.library:ptrAdapterViewBackground}</code></td><td> BELOW HERE ARE DEPRECEATED.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrAnimationStyle com.handmark.pulltorefresh.library:ptrAnimationStyle}</code></td><td> Style of Animation should be used displayed when pulling.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrDrawable com.handmark.pulltorefresh.library:ptrDrawable}</code></td><td> Drawable to use as Loading Indicator.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrAdapterViewBackground com.handmark.pulltorefresh.library:ptrAdapterViewBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrAnimationStyle com.handmark.pulltorefresh.library:ptrAnimationStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawable com.handmark.pulltorefresh.library:ptrDrawable}</code></td><td></td></tr>
            <tr><td><code>{@link #PullToRefresh_ptrDrawableBottom com.handmark.pulltorefresh.library:ptrDrawableBottom}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrDrawableEnd com.handmark.pulltorefresh.library:ptrDrawableEnd}</code></td><td> Drawable to use as Loading Indicator in the Footer View.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrDrawableStart com.handmark.pulltorefresh.library:ptrDrawableStart}</code></td><td> Drawable to use as Loading Indicator in the Header View.</td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableEnd com.handmark.pulltorefresh.library:ptrDrawableEnd}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrDrawableStart com.handmark.pulltorefresh.library:ptrDrawableStart}</code></td><td></td></tr>
            <tr><td><code>{@link #PullToRefresh_ptrDrawableTop com.handmark.pulltorefresh.library:ptrDrawableTop}</code></td><td></td></tr>
            <tr><td><code>{@link #PullToRefresh_ptrFriction com.handmark.pulltorefresh.library:ptrFriction}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrGoogleProgressStyle com.handmark.pulltorefresh.library:ptrGoogleProgressStyle}</code></td><td> Styles of Progress Bar Layout for google style pull to refresh </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrGoogleViewStyle com.handmark.pulltorefresh.library:ptrGoogleViewStyle}</code></td><td> Styles of Animation for google style pull to refresh </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHeaderBackground com.handmark.pulltorefresh.library:ptrHeaderBackground}</code></td><td> A drawable to use as the background of the Header and Footer Loading Views </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHeaderSubTextColor com.handmark.pulltorefresh.library:ptrHeaderSubTextColor}</code></td><td> Text Color of the Header and Footer Loading Views Sub Header </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextAppearance com.handmark.pulltorefresh.library:ptrHeaderTextAppearance}</code></td><td> Base text color, typeface, size, and style for Header and Footer Loading Views </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextColor com.handmark.pulltorefresh.library:ptrHeaderTextColor}</code></td><td> Text Color of the Header and Footer Loading Views </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHideRefeshableViewWhileRefreshingDuration com.handmark.pulltorefresh.library:ptrHideRefeshableViewWhileRefreshingDuration}</code></td><td> Duration of  Refreshable view's fade-in/out animation </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrHideRefeshableViewWhileRefreshingEnabled com.handmark.pulltorefresh.library:ptrHideRefeshableViewWhileRefreshingEnabled}</code></td><td> Whether Refreshable view is hidden when refreshing </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrIndicatorStyle com.handmark.pulltorefresh.library:ptrIndicatorStyle}</code></td><td>  </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrListViewExtrasEnabled com.handmark.pulltorefresh.library:ptrListViewExtrasEnabled}</code></td><td>
-        	Whether PullToRefreshListView has it's extras enabled.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrMode com.handmark.pulltorefresh.library:ptrMode}</code></td><td> Mode of Pull-to-Refresh that should be used </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrOverScroll com.handmark.pulltorefresh.library:ptrOverScroll}</code></td><td> Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrPullLabel com.handmark.pulltorefresh.library:ptrPullLabel}</code></td><td> Label attributes of Loading layout </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrGoogleProgressStyle com.handmark.pulltorefresh.library:ptrGoogleProgressStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrGoogleViewStyle com.handmark.pulltorefresh.library:ptrGoogleViewStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderBackground com.handmark.pulltorefresh.library:ptrHeaderBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderSubTextColor com.handmark.pulltorefresh.library:ptrHeaderSubTextColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextAppearance com.handmark.pulltorefresh.library:ptrHeaderTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextColor com.handmark.pulltorefresh.library:ptrHeaderTextColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHideRefeshableViewWhileRefreshingDuration com.handmark.pulltorefresh.library:ptrHideRefeshableViewWhileRefreshingDuration}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHideRefeshableViewWhileRefreshingEnabled com.handmark.pulltorefresh.library:ptrHideRefeshableViewWhileRefreshingEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrIndicatorStyle com.handmark.pulltorefresh.library:ptrIndicatorStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrListViewExtrasEnabled com.handmark.pulltorefresh.library:ptrListViewExtrasEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrMode com.handmark.pulltorefresh.library:ptrMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrOverScroll com.handmark.pulltorefresh.library:ptrOverScroll}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrPullLabel com.handmark.pulltorefresh.library:ptrPullLabel}</code></td><td></td></tr>
            <tr><td><code>{@link #PullToRefresh_ptrRefeshableViewProgressBarOnCenterHeight com.handmark.pulltorefresh.library:ptrRefeshableViewProgressBarOnCenterHeight}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrRefeshableViewProgressBarOnCenterWidth com.handmark.pulltorefresh.library:ptrRefeshableViewProgressBarOnCenterWidth}</code></td><td> These attrs are enabled to set width or height of Rotating progress bar on center </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrRefeshableViewProgressBarOnCenterWidth com.handmark.pulltorefresh.library:ptrRefeshableViewProgressBarOnCenterWidth}</code></td><td></td></tr>
            <tr><td><code>{@link #PullToRefresh_ptrRefreshLabel com.handmark.pulltorefresh.library:ptrRefreshLabel}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrRefreshableViewBackground com.handmark.pulltorefresh.library:ptrRefreshableViewBackground}</code></td><td> A drawable to use as the background of the Refreshable View </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrRefreshableViewBackground com.handmark.pulltorefresh.library:ptrRefreshableViewBackground}</code></td><td></td></tr>
            <tr><td><code>{@link #PullToRefresh_ptrReleaseLabel com.handmark.pulltorefresh.library:ptrReleaseLabel}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrRotateDrawableWhilePulling com.handmark.pulltorefresh.library:ptrRotateDrawableWhilePulling}</code></td><td>
-        	Whether the Drawable should be continually rotated as you pull.</td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrScrollingWhileRefreshingEnabled com.handmark.pulltorefresh.library:ptrScrollingWhileRefreshingEnabled}</code></td><td> Whether the user can scroll while the View is Refreshing </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrSetGoogleViewLayoutSizeToActionbarHeight com.handmark.pulltorefresh.library:ptrSetGoogleViewLayoutSizeToActionbarHeight}</code></td><td>
-             Whether Google style view layout's size is set to ActionBar's size 
-        	 (Don't set to false as possible, it's hard to control height if this flag is false)
-        </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrShowGoogleStyleViewAnimationDuration com.handmark.pulltorefresh.library:ptrShowGoogleStyleViewAnimationDuration}</code></td><td> Duration of Google style view layout's fade-in/out animation </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrShowGoogleStyleViewAnimationEnabled com.handmark.pulltorefresh.library:ptrShowGoogleStyleViewAnimationEnabled}</code></td><td> Animation Options only for google Style mode 
- Whether Google style view layout's fade-in animation is shown when pulling </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrShowIndicator com.handmark.pulltorefresh.library:ptrShowIndicator}</code></td><td> Whether the Indicator overlay(s) should be used </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrRotateDrawableWhilePulling com.handmark.pulltorefresh.library:ptrRotateDrawableWhilePulling}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrScrollingWhileRefreshingEnabled com.handmark.pulltorefresh.library:ptrScrollingWhileRefreshingEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrSetGoogleViewLayoutSizeToActionbarHeight com.handmark.pulltorefresh.library:ptrSetGoogleViewLayoutSizeToActionbarHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrShowGoogleStyleViewAnimationDuration com.handmark.pulltorefresh.library:ptrShowGoogleStyleViewAnimationDuration}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrShowGoogleStyleViewAnimationEnabled com.handmark.pulltorefresh.library:ptrShowGoogleStyleViewAnimationEnabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrShowIndicator com.handmark.pulltorefresh.library:ptrShowIndicator}</code></td><td></td></tr>
            <tr><td><code>{@link #PullToRefresh_ptrSmoothScrollDuration com.handmark.pulltorefresh.library:ptrSmoothScrollDuration}</code></td><td></td></tr>
            <tr><td><code>{@link #PullToRefresh_ptrSmoothScrollLongDuration com.handmark.pulltorefresh.library:ptrSmoothScrollLongDuration}</code></td><td></td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrSubHeaderTextAppearance com.handmark.pulltorefresh.library:ptrSubHeaderTextAppearance}</code></td><td> Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration com.handmark.pulltorefresh.library:ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration}</code></td><td> Duration of rotating progress bar's fade-in/out animation </td></tr>
-           <tr><td><code>{@link #PullToRefresh_ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled com.handmark.pulltorefresh.library:ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled}</code></td><td> Whether Rotating progress bar is shown when refreshing </td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrSubHeaderTextAppearance com.handmark.pulltorefresh.library:ptrSubHeaderTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration com.handmark.pulltorefresh.library:ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled com.handmark.pulltorefresh.library:ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled}</code></td><td></td></tr>
            </table>
            @see #PullToRefresh_ptrAdapterViewBackground
            @see #PullToRefresh_ptrAnimationStyle
@@ -468,23 +422,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010024
         };
         /**
-          <p>
-          @attr description
-           BELOW HERE ARE DEPRECEATED. DO NOT USE. 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrAdapterViewBackground}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrAdapterViewBackground
         */
         public static final int PullToRefresh_ptrAdapterViewBackground = 34;
         /**
-          <p>
-          @attr description
-           Style of Animation should be used displayed when pulling. 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrAnimationStyle}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -493,19 +444,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrAnimationStyle
         */
         public static final int PullToRefresh_ptrAnimationStyle = 12;
         /**
-          <p>
-          @attr description
-           Drawable to use as Loading Indicator. Changes both Header and Footer. 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrDrawable}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrDrawable
         */
         public static final int PullToRefresh_ptrDrawable = 6;
@@ -520,26 +468,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         */
         public static final int PullToRefresh_ptrDrawableBottom = 36;
         /**
-          <p>
-          @attr description
-           Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrDrawableEnd}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrDrawableEnd
         */
         public static final int PullToRefresh_ptrDrawableEnd = 8;
         /**
-          <p>
-          @attr description
-           Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrDrawableStart}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrDrawableStart
         */
         public static final int PullToRefresh_ptrDrawableStart = 7;
@@ -568,9 +512,8 @@ containing a value of this type.
         */
         public static final int PullToRefresh_ptrFriction = 19;
         /**
-          <p>
-          @attr description
-           Styles of Progress Bar Layout for google style pull to refresh 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrGoogleProgressStyle}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -579,14 +522,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrGoogleProgressStyle
         */
         public static final int PullToRefresh_ptrGoogleProgressStyle = 15;
         /**
-          <p>
-          @attr description
-           Styles of Animation for google style pull to refresh 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrGoogleViewStyle}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -595,68 +536,58 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrGoogleViewStyle
         */
         public static final int PullToRefresh_ptrGoogleViewStyle = 14;
         /**
-          <p>
-          @attr description
-           A drawable to use as the background of the Header and Footer Loading Views 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrHeaderBackground}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrHeaderBackground
         */
         public static final int PullToRefresh_ptrHeaderBackground = 1;
         /**
-          <p>
-          @attr description
-           Text Color of the Header and Footer Loading Views Sub Header 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrHeaderSubTextColor}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrHeaderSubTextColor
         */
         public static final int PullToRefresh_ptrHeaderSubTextColor = 3;
         /**
-          <p>
-          @attr description
-           Base text color, typeface, size, and style for Header and Footer Loading Views 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrHeaderTextAppearance}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrHeaderTextAppearance
         */
         public static final int PullToRefresh_ptrHeaderTextAppearance = 10;
         /**
-          <p>
-          @attr description
-           Text Color of the Header and Footer Loading Views 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrHeaderTextColor}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrHeaderTextColor
         */
         public static final int PullToRefresh_ptrHeaderTextColor = 2;
         /**
-          <p>
-          @attr description
-           Duration of  Refreshable view's fade-in/out animation 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrHideRefeshableViewWhileRefreshingDuration}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be an integer value, such as "<code>100</code>".
@@ -665,27 +596,23 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrHideRefeshableViewWhileRefreshingDuration
         */
         public static final int PullToRefresh_ptrHideRefeshableViewWhileRefreshingDuration = 30;
         /**
-          <p>
-          @attr description
-           Whether Refreshable view is hidden when refreshing 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrHideRefeshableViewWhileRefreshingEnabled}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrHideRefeshableViewWhileRefreshingEnabled
         */
         public static final int PullToRefresh_ptrHideRefeshableViewWhileRefreshingEnabled = 27;
         /**
-          <p>
-          @attr description
-            
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrIndicatorStyle}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -694,31 +621,23 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrIndicatorStyle
         */
         public static final int PullToRefresh_ptrIndicatorStyle = 13;
         /**
-          <p>
-          @attr description
-          
-        	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
-        	able to scroll while refreshing, and behaves better. It acheives this by adding
-        	Header and/or Footer Views to the ListView.
-        
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrListViewExtrasEnabled}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrListViewExtrasEnabled
         */
         public static final int PullToRefresh_ptrListViewExtrasEnabled = 23;
         /**
-          <p>
-          @attr description
-           Mode of Pull-to-Refresh that should be used 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrMode}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -733,30 +652,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>both</code></td><td>0x3</td><td></td></tr>
 <tr><td><code>manualOnly</code></td><td>0x4</td><td></td></tr>
 <tr><td><code>google</code></td><td>0x5</td><td></td></tr>
-<tr><td><code>pullDownFromTop</code></td><td>0x1</td><td> These last two are depreacted </td></tr>
+<tr><td><code>pullDownFromTop</code></td><td>0x1</td><td></td></tr>
 <tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrMode
         */
         public static final int PullToRefresh_ptrMode = 4;
         /**
-          <p>
-          @attr description
-           Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrOverScroll}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrOverScroll
         */
         public static final int PullToRefresh_ptrOverScroll = 9;
         /**
-          <p>
-          @attr description
-           Label attributes of Loading layout 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrPullLabel}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -765,7 +680,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrPullLabel
         */
         public static final int PullToRefresh_ptrPullLabel = 16;
@@ -784,9 +698,8 @@ containing a value of this type.
         */
         public static final int PullToRefresh_ptrRefeshableViewProgressBarOnCenterHeight = 33;
         /**
-          <p>
-          @attr description
-           These attrs are enabled to set width or height of Rotating progress bar on center 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrRefeshableViewProgressBarOnCenterWidth}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be an integer value, such as "<code>100</code>".
@@ -795,7 +708,6 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrRefeshableViewProgressBarOnCenterWidth
         */
         public static final int PullToRefresh_ptrRefeshableViewProgressBarOnCenterWidth = 32;
@@ -814,16 +726,14 @@ containing a value of this type.
         */
         public static final int PullToRefresh_ptrRefreshLabel = 17;
         /**
-          <p>
-          @attr description
-           A drawable to use as the background of the Refreshable View 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrRefreshableViewBackground}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrRefreshableViewBackground
         */
         public static final int PullToRefresh_ptrRefreshableViewBackground = 0;
@@ -842,54 +752,41 @@ containing a value of this type.
         */
         public static final int PullToRefresh_ptrReleaseLabel = 18;
         /**
-          <p>
-          @attr description
-          
-        	Whether the Drawable should be continually rotated as you pull. This only
-        	takes effect when using the 'Rotate' Animation Style.
-        
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrRotateDrawableWhilePulling}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrRotateDrawableWhilePulling
         */
         public static final int PullToRefresh_ptrRotateDrawableWhilePulling = 24;
         /**
-          <p>
-          @attr description
-           Whether the user can scroll while the View is Refreshing 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrScrollingWhileRefreshingEnabled}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrScrollingWhileRefreshingEnabled
         */
         public static final int PullToRefresh_ptrScrollingWhileRefreshingEnabled = 22;
         /**
-          <p>
-          @attr description
-          
-             Whether Google style view layout's size is set to ActionBar's size 
-        	 (Don't set to false as possible, it's hard to control height if this flag is false)
-        
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrSetGoogleViewLayoutSizeToActionbarHeight}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrSetGoogleViewLayoutSizeToActionbarHeight
         */
         public static final int PullToRefresh_ptrSetGoogleViewLayoutSizeToActionbarHeight = 25;
         /**
-          <p>
-          @attr description
-           Duration of Google style view layout's fade-in/out animation 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrShowGoogleStyleViewAnimationDuration}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be an integer value, such as "<code>100</code>".
@@ -898,34 +795,28 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrShowGoogleStyleViewAnimationDuration
         */
         public static final int PullToRefresh_ptrShowGoogleStyleViewAnimationDuration = 29;
         /**
-          <p>
-          @attr description
-           Animation Options only for google Style mode 
- Whether Google style view layout's fade-in animation is shown when pulling 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrShowGoogleStyleViewAnimationEnabled}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrShowGoogleStyleViewAnimationEnabled
         */
         public static final int PullToRefresh_ptrShowGoogleStyleViewAnimationEnabled = 26;
         /**
-          <p>
-          @attr description
-           Whether the Indicator overlay(s) should be used 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrShowIndicator}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrShowIndicator
         */
         public static final int PullToRefresh_ptrShowIndicator = 5;
@@ -958,21 +849,18 @@ containing a value of this type.
         */
         public static final int PullToRefresh_ptrSmoothScrollLongDuration = 21;
         /**
-          <p>
-          @attr description
-           Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrSubHeaderTextAppearance}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrSubHeaderTextAppearance
         */
         public static final int PullToRefresh_ptrSubHeaderTextAppearance = 11;
         /**
-          <p>
-          @attr description
-           Duration of rotating progress bar's fade-in/out animation 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>Must be an integer value, such as "<code>100</code>".
@@ -981,20 +869,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration
         */
         public static final int PullToRefresh_ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingDuration = 31;
         /**
-          <p>
-          @attr description
-           Whether Rotating progress bar is shown when refreshing 
+          <p>This symbol is the offset where the {@link com.handmark.pulltorefresh.library.R.attr#ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled}
+          attribute's value can be found in the {@link #PullToRefresh} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.handmark.pulltorefresh.library:ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled
         */
         public static final int PullToRefresh_ptrViewRefeshableViewProgressBarOnCenterWhileRefreshingEnabled = 28;

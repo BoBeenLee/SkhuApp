@@ -5,15 +5,15 @@ android {
     buildToolsVersion "20.0.0"
 
     defaultConfig {
-        applicationId "com.handmark.pulltorefresh.library"
-        minSdkVersion 16
-        targetSdkVersion 16
+   //     applicationId "com.handmark.pulltorefresh.library"
+        minSdkVersion 11
+        targetSdkVersion 11
     }
 
     buildTypes {
         release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }

@@ -102,12 +102,14 @@ public class MainActivity extends CommonActivity implements View.OnClickListener
         }
         getIntent().putExtra("class", -1);
         if(clazz != null)
-            startActivity(new Intent(this, clazz));
+            show(clazz);
     }
 
     public void show(Class clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
+//        overridePendingTransition(0, 0);
+//        overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
     }
 
     public void setAlarm() {

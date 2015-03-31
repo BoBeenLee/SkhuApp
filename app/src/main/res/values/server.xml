@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="base_uri">http://104.131.124.225:8080/skhu_server/skhu.app</string>
+    <!--<string name="base_uri">http://104.131.124.225:8080/skhu_server/skhu.app</string>-->
     <!--<string name="base_uri">http://192.168.219.135:8080/skhu_server/skhu.app</string>-->
+    <string name="base_uri">http://swlab.skhu.ac.kr:8080/skhu_app/skhu.app</string>
+
+    <!-- http://203.230.216.100:8080/skhu_app/skhu.app  -->
     <string name="product_id">191825913558</string>
 </resources>

@@ -25,7 +25,7 @@ public class TypefaceUtil {
             defaultFontTypefaceField.set(null, customFontTypeface);
         } catch (Exception e) {
            // e.printStackTrace();
-            Log.d("sdfs", "Can not set custom font " + customFontFileNameInAssets + " instead of " + defaultFontNameToOverride);
+            Log.d("overrideFont", "Can not set custom font " + customFontFileNameInAssets + " instead of " + defaultFontNameToOverride);
         }
     }
 

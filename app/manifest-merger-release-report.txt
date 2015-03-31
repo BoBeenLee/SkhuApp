@@ -1,0 +1,183 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	package
+		ADDED from AndroidManifest.xml:3:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:versionName
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+	android:versionCode
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from AndroidManifest.xml:6:5
+	android:name
+		ADDED from AndroidManifest.xml:6:22
+uses-permission#com.sonyericsson.home.permission.BROADCAST_BADGE
+ADDED from AndroidManifest.xml:9:5
+	android:name
+		ADDED from AndroidManifest.xml:9:22
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from AndroidManifest.xml:10:5
+	android:name
+		ADDED from AndroidManifest.xml:10:22
+uses-permission#android.permission.WAKE_LOCK
+ADDED from AndroidManifest.xml:11:5
+	android:name
+		ADDED from AndroidManifest.xml:11:22
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from AndroidManifest.xml:12:5
+	android:name
+		ADDED from AndroidManifest.xml:12:22
+permission#com.skhu.bobinlee.skhuapp.permission.C2D_MESSAGE
+ADDED from AndroidManifest.xml:14:5
+	android:protectionLevel
+		ADDED from AndroidManifest.xml:16:9
+	android:name
+		ADDED from AndroidManifest.xml:15:9
+uses-permission#com.skhu.bobinlee.skhuapp.permission.C2D_MESSAGE
+ADDED from AndroidManifest.xml:18:5
+	android:name
+		ADDED from AndroidManifest.xml:18:22
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:21:5
+MERGED from SkhuApp:async-http:unspecified:11:5
+	android:name
+		ADDED from AndroidManifest.xml:21:22
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from AndroidManifest.xml:22:5
+	android:name
+		ADDED from AndroidManifest.xml:22:22
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from AndroidManifest.xml:23:5
+	android:name
+		ADDED from AndroidManifest.xml:23:22
+application
+ADDED from AndroidManifest.xml:25:5
+MERGED from SkhuApp:async-http:unspecified:13:5
+MERGED from SkhuApp:pullToRefresh:unspecified:11:5
+MERGED from com.android.support:support-v4:20.0.0:17:5
+	android:label
+		ADDED from AndroidManifest.xml:28:9
+	android:allowBackup
+		ADDED from AndroidManifest.xml:26:9
+	android:icon
+		ADDED from AndroidManifest.xml:27:9
+activity#com.skhu.bobinlee.skhuapp.activity.MainActivity
+ADDED from AndroidManifest.xml:29:9
+	android:label
+		ADDED from AndroidManifest.xml:31:13
+	android:name
+		ADDED from AndroidManifest.xml:30:13
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:32:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:33:17
+	android:name
+		ADDED from AndroidManifest.xml:33:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:35:17
+	android:name
+		ADDED from AndroidManifest.xml:35:27
+activity#com.skhu.bobinlee.skhuapp.activity.HomeActivity
+ADDED from AndroidManifest.xml:38:9
+	android:label
+		ADDED from AndroidManifest.xml:40:13
+	android:name
+		ADDED from AndroidManifest.xml:39:13
+activity#com.skhu.bobinlee.skhuapp.activity.FacebookActivity
+ADDED from AndroidManifest.xml:41:9
+	android:label
+		ADDED from AndroidManifest.xml:43:13
+	android:theme
+		ADDED from AndroidManifest.xml:44:13
+	android:name
+		ADDED from AndroidManifest.xml:42:13
+activity#com.skhu.bobinlee.skhuapp.activity.QnaActivity
+ADDED from AndroidManifest.xml:45:9
+	android:label
+		ADDED from AndroidManifest.xml:47:13
+	android:theme
+		ADDED from AndroidManifest.xml:48:13
+	android:name
+		ADDED from AndroidManifest.xml:46:13
+activity#com.skhu.bobinlee.skhuapp.activity.AlarmActivity
+ADDED from AndroidManifest.xml:49:9
+	android:label
+		ADDED from AndroidManifest.xml:51:13
+	android:name
+		ADDED from AndroidManifest.xml:50:13
+activity#com.skhu.bobinlee.skhuapp.activity.MenuActivity
+ADDED from AndroidManifest.xml:53:9
+	android:label
+		ADDED from AndroidManifest.xml:55:13
+	android:name
+		ADDED from AndroidManifest.xml:54:13
+receiver#com.google.android.gcm.GCMBroadcastReceiver
+ADDED from AndroidManifest.xml:58:9
+	android:permission
+		ADDED from AndroidManifest.xml:60:13
+	android:name
+		ADDED from AndroidManifest.xml:59:13
+intent-filter#com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION+com.skhu.bobinlee.skhuapp
+ADDED from AndroidManifest.xml:61:13
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from AndroidManifest.xml:62:17
+	android:name
+		ADDED from AndroidManifest.xml:62:25
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from AndroidManifest.xml:63:17
+	android:name
+		ADDED from AndroidManifest.xml:63:25
+category#com.skhu.bobinlee.skhuapp
+ADDED from AndroidManifest.xml:65:17
+	android:name
+		ADDED from AndroidManifest.xml:65:27
+receiver#com.skhu.bobinlee.skhuapp.broadcast.BootUpReceiver
+ADDED from AndroidManifest.xml:68:9
+	android:enabled
+		ADDED from AndroidManifest.xml:70:13
+	android:permission
+		ADDED from AndroidManifest.xml:71:13
+	android:name
+		ADDED from AndroidManifest.xml:69:13
+intent-filter#android.intent.action.BOOT_COMPLETED+android.intent.action.QUICKBOOT_POWERON+android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:72:13
+action#android.intent.action.BOOT_COMPLETED
+ADDED from AndroidManifest.xml:73:17
+	android:name
+		ADDED from AndroidManifest.xml:73:25
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from AndroidManifest.xml:74:17
+	android:name
+		ADDED from AndroidManifest.xml:74:25
+category#android.intent.category.DEFAULT
+ADDED from AndroidManifest.xml:76:17
+	android:name
+		ADDED from AndroidManifest.xml:76:27
+service#com.skhu.bobinlee.skhuapp.GCMIntentService
+ADDED from AndroidManifest.xml:80:9
+	android:name
+		ADDED from AndroidManifest.xml:80:18
+activity#com.skhu.bobinlee.skhuapp.activity.CalendarActivity
+ADDED from AndroidManifest.xml:82:9
+	android:label
+		ADDED from AndroidManifest.xml:84:13
+	android:name
+		ADDED from AndroidManifest.xml:83:13
+uses-sdk
+INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
+MERGED from SkhuApp:async-http:unspecified:7:5
+MERGED from SkhuApp:pullToRefresh:unspecified:7:5
+MERGED from SkhuApp:viewPagerIndicator:unspecified:7:5
+MERGED from com.android.support:support-v4:20.0.0:16:5
+	android:targetSdkVersion
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
