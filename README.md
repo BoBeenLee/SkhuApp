@@ -1,4 +1,11 @@
-SkhuApp
+성공회대 알리미 앱 
 =======
 
-SkhuApp
++ Android
+  + Android Pull To Refresh
+  + Android ViewPagerIndicator
+  + HTTP ( Android-Async-Http )
+  + Image Processor ( Picasso )
+  + Facebook Graph API
+  + Json ( Gson )
+  + Time ( Joda Time ), GCM 
