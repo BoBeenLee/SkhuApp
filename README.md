@@ -7,5 +7,5 @@
   + HTTP ( Android-Async-Http )
   + Image Processor ( Picasso )
   + Facebook Graph API
-  + Json ( Gson )
+  + Json ( Jackson JSON Processor )
   + Time ( Joda Time ), GCM 
